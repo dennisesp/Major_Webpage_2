@@ -1,0 +1,7 @@
+
+<div class="text-box">
+
+# Welcome to the Majors Page
+
+Welcome to our website. This platform is designed to support faculty hiring committees by providing clear, accessible insights into the landscape of earned doctorates. Here, you’ll find data and visualizations that highlight trends in doctoral degrees across disciplines, with a focus on promoting equity and informed decision-making in the hiring process. Our goal is to equip committees with the tools and context necessary to understand who is earning doctorates and how that knowledge can inform inclusive and forward-thinking faculty recruitment.
+

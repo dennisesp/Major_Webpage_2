@@ -1,0 +1,16 @@
+---
+title: "About The Project"
+toc: false
+---
+
+
+  <div class="text-box">
+
+
+**About the Project**
+
+Hello! 
+
+The current project uses IPEDS data to determine earned doctorates across the U.S. 
+</div>
+

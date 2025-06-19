@@ -1,0 +1,73 @@
+body {
+  background-color: #f0f4ff; /* subtle blue-tinted background for contrast */
+  color: #111111;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Profile Image Styling */
+.profile-img {
+  width: 170px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Text Box Styling */
+.text-box {
+  background-color: #ffffff;
+  color: #111111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #011F5B; /* Penn Blue border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 30px;
+}
+
+/* Text Highlighting */
+.highlight-blue {
+  color: #011F5B; /* Penn Blue */
+  font-weight: bold;
+}
+
+.highlight-red {
+  color: #990000; /* Penn Red */
+  font-weight: bold;
+}
+
+.highlight-gray {
+  color: gray;
+}
+
+/* Link Styling */
+a {
+  color: #011F5B; /* Penn Blue */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #990000; /* Penn Red on hover */
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-box {
+    width: 100%;
+  }
+}
+
+.spacer {
+  height: 70px;
+}
