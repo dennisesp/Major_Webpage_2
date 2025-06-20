@@ -68,27 +68,6 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About The Project",
-    "section": "",
-    "text": "About the Project\nHello!\nThe current project uses IPEDS data to determine earned doctorates across the U.S.",
-    "crumbs": [
-      "About The Project"
-    ]
-  },
-  {
-    "objectID": "Majors/Africana.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color",
-    "href": "Majors/Africana.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color",
-    "title": "Africana Studies",
-    "section": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color",
-    "text": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n# Load and filter the data\ndf = pd.read_csv(\"Concatenated_Data.csv\")\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\n\n# Filter for majors and race/ethnicity\nfiltered_df = df[\n    (df[\"Major\"].isin(afro_majors)) & \n    (df[\"Race and Ethnicity\"].isin(race_keep))\n]\n\n# Group and sum degrees\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Rank within each race group\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n# Keep top 10 per race\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n# Define dropdown toggle\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n# Bar chart in list format (toggle by race)\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Afro-Diasporic Majors Per Race/Ethnicity\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
-    "crumbs": [
-      "Majors",
-      "Africana Studies"
-    ]
-  },
-  {
     "objectID": "Majors/Africana.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity",
     "href": "Majors/Africana.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity",
     "title": "Africana Studies",
@@ -97,6 +76,16 @@
     "crumbs": [
       "Majors",
       "Africana Studies"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About The Project",
+    "section": "",
+    "text": "About the Project\nHello!\nThe current project uses IPEDS data to determine earned doctorates across the U.S.",
+    "crumbs": [
+      "About The Project"
     ]
   }
 ]
