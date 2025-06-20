@@ -217,103 +217,109 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 <div>
+<div id="258a5f20-266c-488b-bb71-5c1911c1ea71" class="cell" data-tags="[]" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.</code></pre>
+</div>
+</div>
 <section id="racial-breakdown-per-afro-diasporic-major" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="racial-breakdown-per-afro-diasporic-major">Racial Breakdown Per Afro-Diasporic Major</h2>
-<div id="68b8875e-8438-4821-833d-8340ebb2a4f8" class="cell" data-tags="[]" data-execution_count="38">
+<div id="68b8875e-8438-4821-833d-8340ebb2a4f8" class="cell" data-tags="[]" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and filter the data</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Concatenated_Data.csv"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>race_keep <span class="op">=</span> [</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hispanic or Latino"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Black or African American"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American Indian or Alaska Native"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Asian"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Native Hawaiian or Other Pacific Islander"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Two or more races"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0201 - African-American/Black Studies."</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16.02 - African Languages, Literatures, and Linguistics."</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0101 - African Studies."</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and aggregate data</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>afro_df <span class="op">=</span> (</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    df[df[<span class="st">"Race and Ethnicity"</span>].isin(race_keep) <span class="op">&amp;</span> df[<span class="st">"Major"</span>].isin(afro_majors)]</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">"Major"</span>, <span class="st">"Race and Ethnicity"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Add overall row</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> (</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    afro_df.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>overall[<span class="st">"Major"</span>] <span class="op">=</span> <span class="st">"All Afro-diasporic majors (total)"</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>afro_df <span class="op">=</span> pd.concat([afro_df, overall], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix: Use parameter with transform_filter expression</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>major_dropdown <span class="op">=</span> alt.binding_select(</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>afro_df[<span class="st">"Major"</span>].unique().tolist(),</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Major: "</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>major_param <span class="op">=</span> alt.param(</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Major"</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    bind<span class="op">=</span>major_dropdown,</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    value<span class="op">=</span><span class="st">"All Afro-diasporic majors (total)"</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct filter using expression (alt.datum)</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    alt.Chart(afro_df)</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    .add_params(major_param)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    .transform_filter(</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        alt.datum.Major <span class="op">==</span> major_param</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Race and Ethnicity:N"</span>, sort<span class="op">=</span><span class="st">"-x"</span>, title<span class="op">=</span><span class="st">"Race / Ethnicity"</span>),</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Race and Ethnicity:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Race and Ethnicity:N"</span>, <span class="st">"Awards/Degrees Conferred:Q"</span>]</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Earned Doctorates in Afro-Diasporic Majors by Race/Ethnicity (2021–2023)"</span>,</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and filter the data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Concatenated_Data.csv"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>race_keep <span class="op">=</span> [</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hispanic or Latino"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Black or African American"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American Indian or Alaska Native"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Asian"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Native Hawaiian or Other Pacific Islander"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Two or more races"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0201 - African-American/Black Studies."</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16.02 - African Languages, Literatures, and Linguistics."</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0101 - African Studies."</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and aggregate data</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>afro_df <span class="op">=</span> (</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    df[df[<span class="st">"Race and Ethnicity"</span>].isin(race_keep) <span class="op">&amp;</span> df[<span class="st">"Major"</span>].isin(afro_majors)]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">"Major"</span>, <span class="st">"Race and Ethnicity"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Add overall row</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> (</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    afro_df.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>overall[<span class="st">"Major"</span>] <span class="op">=</span> <span class="st">"All Afro-diasporic majors (total)"</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>afro_df <span class="op">=</span> pd.concat([afro_df, overall], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix: Use parameter with transform_filter expression</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>major_dropdown <span class="op">=</span> alt.binding_select(</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>afro_df[<span class="st">"Major"</span>].unique().tolist(),</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Major: "</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>major_param <span class="op">=</span> alt.param(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Major"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    bind<span class="op">=</span>major_dropdown,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    value<span class="op">=</span><span class="st">"All Afro-diasporic majors (total)"</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct filter using expression (alt.datum)</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    alt.Chart(afro_df)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    .add_params(major_param)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    .transform_filter(</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        alt.datum.Major <span class="op">==</span> major_param</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Race and Ethnicity:N"</span>, sort<span class="op">=</span><span class="st">"-x"</span>, title<span class="op">=</span><span class="st">"Race / Ethnicity"</span>),</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Race and Ethnicity:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Race and Ethnicity:N"</span>, <span class="st">"Awards/Degrees Conferred:Q"</span>]</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Earned Doctorates in Afro-Diasporic Majors by Race/Ethnicity (2021–2023)"</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <style>
-  #altair-viz-41f88cb4a5df414d9f656f7068fb5ff7.vega-embed {
+  #altair-viz-baf3e94c688d46efa744a7785dc4de85.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-41f88cb4a5df414d9f656f7068fb5ff7.vega-embed details,
-  #altair-viz-41f88cb4a5df414d9f656f7068fb5ff7.vega-embed details summary {
+  #altair-viz-baf3e94c688d46efa744a7785dc4de85.vega-embed details,
+  #altair-viz-baf3e94c688d46efa744a7785dc4de85.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-41f88cb4a5df414d9f656f7068fb5ff7"></div>
+<div id="altair-viz-baf3e94c688d46efa744a7785dc4de85"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-41f88cb4a5df414d9f656f7068fb5ff7") {
-      outputDiv = document.getElementById("altair-viz-41f88cb4a5df414d9f656f7068fb5ff7");
+    if (outputDiv.id !== "altair-viz-baf3e94c688d46efa744a7785dc4de85") {
+      outputDiv = document.getElementById("altair-viz-baf3e94c688d46efa744a7785dc4de85");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -366,64 +372,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gendered-breakdown-in-afro-diasporic-majors" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="gendered-breakdown-in-afro-diasporic-majors">Gendered Breakdown in Afro-Diasporic Majors</h2>
-<div id="ed1a58c5-b46d-4bd6-9cea-f8c96ad098cd" class="cell" data-execution_count="37">
+<div id="ed1a58c5-b46d-4bd6-9cea-f8c96ad098cd" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and filter the data</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Concatenated_Data.csv"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0201 - African-American/Black Studies."</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16.02 - African Languages, Literatures, and Linguistics."</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0101 - African Studies."</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to only Afro-Diasporic majors</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>gender_df <span class="op">=</span> df[df[<span class="st">"Major"</span>].isin(afro_majors)]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate total awards by gender</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>gender_agg <span class="op">=</span> (</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    gender_df.groupby(<span class="st">"Sex"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pie chart</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>pie_chart <span class="op">=</span> alt.Chart(gender_agg).mark_arc().encode(</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    theta<span class="op">=</span>alt.Theta(field<span class="op">=</span><span class="st">"Awards/Degrees Conferred"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"quantitative"</span>),</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(field<span class="op">=</span><span class="st">"Sex"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"nominal"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Gender"</span>)),</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Sex"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>).properties(</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021–2023)"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">400</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and filter the data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Concatenated_Data.csv"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0201 - African-American/Black Studies."</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16.02 - African Languages, Literatures, and Linguistics."</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0101 - African Studies."</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to only Afro-Diasporic majors</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>gender_df <span class="op">=</span> df[df[<span class="st">"Major"</span>].isin(afro_majors)]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate total awards by gender</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>gender_agg <span class="op">=</span> (</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    gender_df.groupby(<span class="st">"Sex"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pie chart</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>pie_chart <span class="op">=</span> alt.Chart(gender_agg).mark_arc().encode(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    theta<span class="op">=</span>alt.Theta(field<span class="op">=</span><span class="st">"Awards/Degrees Conferred"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"quantitative"</span>),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(field<span class="op">=</span><span class="st">"Sex"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"nominal"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Gender"</span>)),</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Sex"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021–2023)"</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">400</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <style>
-  #altair-viz-d16804e4f04445e691c9b0a3ecc65614.vega-embed {
+  #altair-viz-9be3bf526f984a9cb21a3d82060080d1.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-d16804e4f04445e691c9b0a3ecc65614.vega-embed details,
-  #altair-viz-d16804e4f04445e691c9b0a3ecc65614.vega-embed details summary {
+  #altair-viz-9be3bf526f984a9cb21a3d82060080d1.vega-embed details,
+  #altair-viz-9be3bf526f984a9cb21a3d82060080d1.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-d16804e4f04445e691c9b0a3ecc65614"></div>
+<div id="altair-viz-9be3bf526f984a9cb21a3d82060080d1"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-d16804e4f04445e691c9b0a3ecc65614") {
-      outputDiv = document.getElementById("altair-viz-d16804e4f04445e691c9b0a3ecc65614");
+    if (outputDiv.id !== "altair-viz-9be3bf526f984a9cb21a3d82060080d1") {
+      outputDiv = document.getElementById("altair-viz-9be3bf526f984a9cb21a3d82060080d1");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -470,6 +476,150 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         .then(() => displayChart(vegaEmbed));
     }
   })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-f79118a7486fa27702b763fc005f6e6a"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "Sex", "legend": {"title": "Gender"}, "type": "nominal"}, "theta": {"field": "Awards/Degrees Conferred", "type": "quantitative"}, "tooltip": [{"field": "Sex", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}]}, "height": 400, "title": "Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021\u20132023)", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-f79118a7486fa27702b763fc005f6e6a": [{"Sex": "Female", "Awards/Degrees Conferred": 60}, {"Sex": "Male", "Awards/Degrees Conferred": 43}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+</section>
+<section id="top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity" class="level2 text-box">
+<h2 class="anchored" data-anchor-id="top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity">Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity</h2>
+<div id="f18e67de-06f6-488b-a5c0-55cedf3a24ac" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and filter the data</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"Concatenated_Data.csv"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0201 - African-American/Black Studies."</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"16.02 - African Languages, Literatures, and Linguistics."</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"05.0101 - African Studies."</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>race_keep <span class="op">=</span> [</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hispanic or Latino"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Black or African American"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American Indian or Alaska Native"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Asian"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Native Hawaiian or Other Pacific Islander"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Two or more races"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter for majors and race/ethnicity</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Major"</span>].isin(afro_majors)) <span class="op">&amp;</span> </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Race and Ethnicity"</span>].isin(race_keep))</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Group and sum degrees</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> (</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    filtered_df.groupby([<span class="st">"Race and Ethnicity"</span>, <span class="st">"Institution Name"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank within each race group</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>grouped[<span class="st">"Rank"</span>] <span class="op">=</span> grouped.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]<span class="op">\</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                         .rank(method<span class="op">=</span><span class="st">"first"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep top 10 per race</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> grouped[grouped[<span class="st">"Rank"</span>] <span class="op">&lt;=</span> <span class="dv">10</span>]</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Define dropdown toggle</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>race_dropdown <span class="op">=</span> alt.binding_select(</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>top10[<span class="st">"Race and Ethnicity"</span>].unique().tolist(),</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Race/Ethnicity: "</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>race_param <span class="op">=</span> alt.param(bind<span class="op">=</span>race_dropdown, name<span class="op">=</span><span class="st">"RaceFilter"</span>, value<span class="op">=</span><span class="st">"Black or African American"</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart in list format (toggle by race)</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    alt.Chart(top10)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    .add_params(race_param)</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    .transform_filter(alt.datum[<span class="st">"Race and Ethnicity"</span>] <span class="op">==</span> race_param)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Institution Name:N"</span>, sort<span class="op">=</span><span class="st">'-x'</span>, title<span class="op">=</span><span class="st">"Institution"</span>),</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Institution Name:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Institution Name"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Top Institutions Awarding Doctorates in Afro-Diasporic Majors"</span>,</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<style>
+  #altair-viz-6d6a79fedce64f47b7e79dd5e98b830f.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-6d6a79fedce64f47b7e79dd5e98b830f.vega-embed details,
+  #altair-viz-6d6a79fedce64f47b7e79dd5e98b830f.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-6d6a79fedce64f47b7e79dd5e98b830f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-6d6a79fedce64f47b7e79dd5e98b830f") {
+      outputDiv = document.getElementById("altair-viz-6d6a79fedce64f47b7e79dd5e98b830f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.14.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.14.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-4481f9c0095e0c2126155d629be06a20"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Institution Name", "legend": null, "type": "nominal"}, "tooltip": [{"field": "Institution Name", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}], "x": {"field": "Awards/Degrees Conferred", "title": "Degrees Conferred", "type": "quantitative"}, "y": {"field": "Institution Name", "sort": "-x", "title": "Institution", "type": "nominal"}}, "height": 300, "params": [{"name": "RaceFilter", "bind": {"input": "select", "options": ["Asian", "Black or African American", "Hispanic or Latino", "Two or more races"], "name": "Select Race/Ethnicity: "}, "value": "Black or African American"}], "title": "Top Institutions Awarding Doctorates in Afro-Diasporic Majors", "transform": [{"filter": "(datum['Race and Ethnicity'] === RaceFilter)"}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-4481f9c0095e0c2126155d629be06a20": [{"Race and Ethnicity": "Asian", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 1, "Rank": 1.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 1, "Rank": 2.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of Wisconsin-Madison", "Awards/Degrees Conferred": 1, "Rank": 3.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Brown University", "Awards/Degrees Conferred": 4, "Rank": 8.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 5, "Rank": 6.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Howard University", "Awards/Degrees Conferred": 9, "Rank": 3.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Michigan State University", "Awards/Degrees Conferred": 4, "Rank": 9.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Northwestern University", "Awards/Degrees Conferred": 5, "Rank": 7.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Temple University", "Awards/Degrees Conferred": 12, "Rank": 1.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "The University of Texas at Austin", "Awards/Degrees Conferred": 10, "Rank": 2.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 4, "Rank": 10.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "University of Louisville", "Awards/Degrees Conferred": 7, "Rank": 4.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "University of Massachusetts-Amherst", "Awards/Degrees Conferred": 6, "Rank": 5.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Brown University", "Awards/Degrees Conferred": 2, "Rank": 2.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 1, "Rank": 3.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Northwestern University", "Awards/Degrees Conferred": 1, "Rank": 4.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Temple University", "Awards/Degrees Conferred": 1, "Rank": 5.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "The University of Texas at Austin", "Awards/Degrees Conferred": 4, "Rank": 1.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 1, "Rank": 1.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Temple University", "Awards/Degrees Conferred": 1, "Rank": 2.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "The University of Texas at Austin", "Awards/Degrees Conferred": 1, "Rank": 3.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 1, "Rank": 4.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Yale University", "Awards/Degrees Conferred": 1, "Rank": 5.0}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
