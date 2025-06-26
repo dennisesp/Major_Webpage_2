@@ -21,40 +21,40 @@
     "href": "Majors/Africana.html",
     "title": "Africana Studies",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n\nAfrican-American/Black Studies\nAfrican Languages, Literatures, and Linguistics.\nAfrican Studies.",
+    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n1) 05.0201 - African-American/Black Studies.\n2) 16.02 - African Languages, Literatures, and Linguistics.\n3) 05.0101 - African Studies.",
     "crumbs": [
       "Majors",
       "Africana Studies"
     ]
   },
   {
-    "objectID": "Majors/Africana.html#african-diasporic-majors",
-    "href": "Majors/Africana.html#african-diasporic-majors",
+    "objectID": "Majors/Africana.html#african-diasporic-fields-of-study",
+    "href": "Majors/Africana.html#african-diasporic-fields-of-study",
     "title": "Africana Studies",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n\nAfrican-American/Black Studies\nAfrican Languages, Literatures, and Linguistics.\nAfrican Studies.",
+    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n1) 05.0201 - African-American/Black Studies.\n2) 16.02 - African Languages, Literatures, and Linguistics.\n3) 05.0101 - African Studies.",
     "crumbs": [
       "Majors",
       "Africana Studies"
     ]
   },
   {
-    "objectID": "Majors/Africana.html#racial-breakdown-per-afro-diasporic-major",
-    "href": "Majors/Africana.html#racial-breakdown-per-afro-diasporic-major",
+    "objectID": "Majors/Africana.html#earned-doctorates-in-afro-diasporic-fields-of-study-by-raceethnicity",
+    "href": "Majors/Africana.html#earned-doctorates-in-afro-diasporic-fields-of-study-by-raceethnicity",
     "title": "Africana Studies",
-    "section": "Racial Breakdown Per Afro-Diasporic Major",
-    "text": "Racial Breakdown Per Afro-Diasporic Major\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n# Load and filter the data\ndf = pd.read_csv(\"filtered_data.csv\")\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\n# Filter and aggregate data\nafro_df = (\n    df[df[\"Race and Ethnicity\"].isin(race_keep) & df[\"Major\"].isin(afro_majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Add overall row\noverall = (\n    afro_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Afro-diasporic majors (total)\"\nafro_df = pd.concat([afro_df, overall], ignore_index=True)\n\n# Fix: Use parameter with transform_filter expression\nmajor_dropdown = alt.binding_select(\n    options=afro_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Afro-diasporic majors (total)\"\n)\n\n# Correct filter using expression (alt.datum)\nchart = (\n    alt.Chart(afro_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Afro-Diasporic Majors by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "section": "Earned Doctorates in Afro-Diasporic Fields of Study by Race/Ethnicity",
+    "text": "Earned Doctorates in Afro-Diasporic Fields of Study by Race/Ethnicity\n\n\nCode\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\n\nafro_df = (\n    df[df[\"Major\"].isin(afro_majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Add overall row\noverall = (\n    afro_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Afro-diasporic majors (total)\"\nafro_df = pd.concat([afro_df, overall], ignore_index=True)\n\n# Fix: Use parameter with transform_filter expression\nmajor_dropdown = alt.binding_select(\n    options=afro_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Afro-diasporic majors (total)\"\n)\n\n# Correct filter using expression (alt.datum)\nchart = (\n    alt.Chart(afro_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Afro-Diasporic Majors by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
     "crumbs": [
       "Majors",
       "Africana Studies"
     ]
   },
   {
-    "objectID": "Majors/Africana.html#gendered-breakdown-in-afro-diasporic-majors",
-    "href": "Majors/Africana.html#gendered-breakdown-in-afro-diasporic-majors",
+    "objectID": "Majors/Africana.html#earned-doctorates-in-afro-diasporic-fields-of-study-by-sex",
+    "href": "Majors/Africana.html#earned-doctorates-in-afro-diasporic-fields-of-study-by-sex",
     "title": "Africana Studies",
-    "section": "Gendered Breakdown in Afro-Diasporic Majors",
-    "text": "Gendered Breakdown in Afro-Diasporic Majors\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n\ndf = pd.read_csv(\"filtered_data.csv\")\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\n\ngender_df = df[df[\"Major\"].isin(afro_majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "section": "Earned Doctorates in Afro-Diasporic Fields of Study by Sex",
+    "text": "Earned Doctorates in Afro-Diasporic Fields of Study by Sex\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n\n\ngender_df = df[df[\"Major\"].isin(afro_majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
     "crumbs": [
       "Majors",
       "Africana Studies"
@@ -65,60 +65,187 @@
     "href": "Majors/Africana.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity",
     "title": "Africana Studies",
     "section": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity",
-    "text": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\ndf = pd.read_csv(\"filtered_data.csv\")\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(afro_majors)) & \n    (df[\"Race and Ethnicity\"].isin(race_keep))\n]\n\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n#\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Afro-Diasporic Majors\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "text": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    df[\"Major\"].isin(afro_majors)\n]\n\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n#\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Afro-Diasporic Majors\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
     "crumbs": [
       "Majors",
       "Africana Studies"
     ]
   },
   {
-    "objectID": "Majors/Africana-Copy1.html",
-    "href": "Majors/Africana-Copy1.html",
-    "title": "Africana Studies",
+    "objectID": "Majors/Cinema.html",
+    "href": "Majors/Cinema.html",
+    "title": "Cinema and Media Studies",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n\nAfrican-American/Black Studies\nAfrican Languages, Literatures, and Linguistics.\nAfrican Studies."
+    "text": "Below you’ll find the breakdown of earned doctorates in Cinema and Media Studies\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n1) ‘09.01 - Communication and Media Studies.’\n2) ‘50.0602 - Cinematography and Film/Video Production.’\n2) ‘09.07 - Radio, Television, and Digital Communication.’",
+    "crumbs": [
+      "Majors",
+      "Cinema and Media Studies"
+    ]
   },
   {
-    "objectID": "Majors/Africana-Copy1.html#african-diasporic-majors",
-    "href": "Majors/Africana-Copy1.html#african-diasporic-majors",
-    "title": "Africana Studies",
-    "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Afro-Diasporic Majors\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n\nAfrican-American/Black Studies\nAfrican Languages, Literatures, and Linguistics.\nAfrican Studies."
+    "objectID": "Majors/Cinema.html#earned-doctorates-in-cinema-and-media-studies-by-raceethnicity",
+    "href": "Majors/Cinema.html#earned-doctorates-in-cinema-and-media-studies-by-raceethnicity",
+    "title": "Cinema and Media Studies",
+    "section": "Earned Doctorates in Cinema and Media Studies by Race/Ethnicity",
+    "text": "Earned Doctorates in Cinema and Media Studies by Race/Ethnicity\n\n\nCode\nmajors = [\n    '09.01 - Communication and Media Studies.', '50.0602 - Cinematography and Film/Video Production.',\n    '09.07 - Radio, Television, and Digital Communication.'\n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Anthropology Related Areas of Studies(2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Cinema and Media Studies"
+    ]
   },
   {
-    "objectID": "Majors/Africana-Copy1.html#racial-breakdown-per-afro-diasporic-major",
-    "href": "Majors/Africana-Copy1.html#racial-breakdown-per-afro-diasporic-major",
-    "title": "Africana Studies",
-    "section": "Racial Breakdown Per Afro-Diasporic Major",
-    "text": "Racial Breakdown Per Afro-Diasporic Major\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n# Load and filter the data\ndf = pd.read_csv(\"Concatenated_Data.csv\")\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\n# Filter and aggregate data\nafro_df = (\n    df[df[\"Race and Ethnicity\"].isin(race_keep) & df[\"Major\"].isin(afro_majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Add overall row\noverall = (\n    afro_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Afro-diasporic majors (total)\"\nafro_df = pd.concat([afro_df, overall], ignore_index=True)\n\n# Fix: Use parameter with transform_filter expression\nmajor_dropdown = alt.binding_select(\n    options=afro_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Afro-diasporic majors (total)\"\n)\n\n# Correct filter using expression (alt.datum)\nchart = (\n    alt.Chart(afro_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Afro-Diasporic Majors by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+    "objectID": "Majors/Cinema.html#earned-doctorates-in-cinema-and-media-studies-by-sex",
+    "href": "Majors/Cinema.html#earned-doctorates-in-cinema-and-media-studies-by-sex",
+    "title": "Cinema and Media Studies",
+    "section": "Earned Doctorates in Cinema and Media Studies by Sex",
+    "text": "Earned Doctorates in Cinema and Media Studies by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Anthropolgy Fields of Study (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Majors",
+      "Cinema and Media Studies"
+    ]
   },
   {
-    "objectID": "Majors/Africana-Copy1.html#gendered-breakdown-in-afro-diasporic-majors",
-    "href": "Majors/Africana-Copy1.html#gendered-breakdown-in-afro-diasporic-majors",
-    "title": "Africana Studies",
-    "section": "Gendered Breakdown in Afro-Diasporic Majors",
-    "text": "Gendered Breakdown in Afro-Diasporic Majors\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n# Load and filter the data\ndf = pd.read_csv(\"Concatenated_Data.csv\")\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\n# Filter to only Afro-Diasporic majors\ngender_df = df[df[\"Major\"].isin(afro_majors)]\n\n# Aggregate total awards by gender\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Create pie chart\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Afro-Diasporic Majors (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart"
-  },
-  {
-    "objectID": "Majors/Africana-Copy1.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity",
-    "href": "Majors/Africana-Copy1.html#top-instiutions-graduating-afro-diasporic-doctorates-of-color-per-raceethnicity",
-    "title": "Africana Studies",
-    "section": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity",
-    "text": "Top Instiutions Graduating Afro-Diasporic Doctorates of Color Per Race/Ethnicity\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n# Load and filter the data\ndf = pd.read_csv(\"Concatenated_Data.csv\")\n\nafro_majors = [\n    \"05.0201 - African-American/Black Studies.\",\n    \"16.02 - African Languages, Literatures, and Linguistics.\",\n    \"05.0101 - African Studies.\",\n]\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\n\n# Filter for majors and race/ethnicity\nfiltered_df = df[\n    (df[\"Major\"].isin(afro_majors)) & \n    (df[\"Race and Ethnicity\"].isin(race_keep))\n]\n\n# Group and sum degrees\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n# Rank within each race group\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n# Keep top 10 per race\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n# Define dropdown toggle\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n# Bar chart in list format (toggle by race)\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Afro-Diasporic Majors\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+    "objectID": "Majors/Cinema.html#top-10-institutions-awarding-doctorates-in-cinema-and-media-studies-by-raceethnicity",
+    "href": "Majors/Cinema.html#top-10-institutions-awarding-doctorates-in-cinema-and-media-studies-by-raceethnicity",
+    "title": "Cinema and Media Studies",
+    "section": "Top 10 Institutions Awarding Doctorates in Cinema and Media Studies by Race/Ethnicity",
+    "text": "Top 10 Institutions Awarding Doctorates in Cinema and Media Studies by Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Anthropology Fields of Study\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Cinema and Media Studies"
+    ]
   },
   {
     "objectID": "Majors/Biology.html",
     "href": "Majors/Biology.html",
     "title": "Biology",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Biology related areas of study\nThe following graphs display the majors for the following CIP major from the IPEDS survey of earned doctorates.\n\n‘26.01 - Biology, General.’\n\n\n\nimport pandas as pd\nimport altair as alt\n\nIntel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.\nIntel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.\n\n\n\ndf=pd.read_csv('filtered_data.csv')\n\n\nimport pandas as pd\nimport altair as alt\n\n\ndf = pd.read_csv(\"filtered_data.csv\")\n\n\nrace_keep = [\n    \"Hispanic or Latino\",\n    \"Black or African American\",\n    \"American Indian or Alaska Native\",\n    \"Asian\",\n    \"Native Hawaiian or Other Pacific Islander\",\n    \"Two or more races\",\n]\nbio_major = ['26.01 - Biology, General.']\n\n\nfiltered_df = df[\n    (df[\"Race and Ethnicity\"].isin(race_keep)) &\n    (df[\"Major\"].isin(bio_major))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Biology by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart\n\n\n\n\n\n\n\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n\ndf = pd.read_csv(\"filtered_data.csv\")\n\nmajors = [\n'26.01 - Biology, General.'\n]\n\n\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Biology (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart\n\n\n\n\n\n\n\n\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors)) & \n    (df[\"Race and Ethnicity\"].isin(race_keep))\n]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Biology\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+    "text": "Below you’ll find the breakdown of earned doctorates in Biology related areas of study\nThe following graphs display the majors for the following CIP major from the IPEDS survey of earned doctorates.\n\n‘26.01 - Biology, General.’",
+    "crumbs": [
+      "Majors",
+      "Biology"
+    ]
+  },
+  {
+    "objectID": "Majors/Biology.html#earned-doctorates-in-biology-by-raceethnicity",
+    "href": "Majors/Biology.html#earned-doctorates-in-biology-by-raceethnicity",
+    "title": "Biology",
+    "section": "Earned Doctorates in Biology by Race/Ethnicity",
+    "text": "Earned Doctorates in Biology by Race/Ethnicity\n\n\nCode\nbio_major = ['26.01 - Biology, General.']\n\n\nfiltered_df = df[df[\"Major\"].isin(bio_major)\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Biology by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Biology"
+    ]
+  },
+  {
+    "objectID": "Majors/Biology.html#earned-doctorates-in-biology-by-sex",
+    "href": "Majors/Biology.html#earned-doctorates-in-biology-by-sex",
+    "title": "Biology",
+    "section": "Earned Doctorates in Biology by Sex",
+    "text": "Earned Doctorates in Biology by Sex\n\n\nCode\nmajors = [\n'26.01 - Biology, General.'\n]\n\n\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Biology (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Majors",
+      "Biology"
+    ]
+  },
+  {
+    "objectID": "Majors/Biology.html#top-10-instituions-awarding-doctorates-in-biology-per-raceethnicity",
+    "href": "Majors/Biology.html#top-10-instituions-awarding-doctorates-in-biology-per-raceethnicity",
+    "title": "Biology",
+    "section": "Top 10 Instituions Awarding Doctorates in Biology Per Race/Ethnicity",
+    "text": "Top 10 Instituions Awarding Doctorates in Biology Per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors)) & \n    (df[\"Race and Ethnicity\"].isin(race_keep))\n]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Biology\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Biology"
+    ]
   },
   {
     "objectID": "Majors/Anthropology.html",
     "href": "Majors/Anthropology.html",
     "title": "Anthropology",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Biology related areas of study\nThe following graphs display the majors for the following CIP major from the IPEDS survey of earned doctorates.\n\n‘26.01 - Biology, General.’\n\n\n\nimport pandas as pd\nimport altair as alt\n\n\ndf=pd.read_csv('filtered_data.csv')\n\n\ndf['Major'].unique()\n\narray(['04.08 - Architectural History, Criticism, and Conservation.',\n       '40.05 - Chemistry.',\n       '03.01 - Natural Resources Conservation and Research.',\n       '09.01 - Communication and Media Studies.',\n       '09.07 - Radio, Television, and Digital Communication.',\n       '16.01 - Linguistic, Comparative, and Related Language Studies and Services.',\n       '16.02 - African Languages, Literatures, and Linguistics.',\n       '16.05 - Germanic Languages, Literatures, and Linguistics.',\n       '16.07 - South Asian Languages, Literatures, and Linguistics.',\n       '16.11 - Middle/Near Eastern and Semitic Languages, Literatures, and Linguistics.',\n       '16.12 - Classics and Classical Languages, Literatures, and Linguistics.',\n       '23.01 - English Language and Literature, General.',\n       '26.01 - Biology, General.', '27.01 - Mathematics.',\n       '30.22 - Classical and Ancient Studies.',\n       '30.44 - Geography and Environmental Studies.',\n       '38.00 - Philosophy and Religious Studies, General.',\n       '38.01 - Philosophy.',\n       '38.99 - Philosophy and Religious Studies, Other.',\n       '40.02 - Astronomy and Astrophysics.',\n       '40.11 - Physics and Astronomy.', '42.01 - Psychology, General.',\n       '43.01 - Criminal Justice and Corrections.',\n       '45.02 - Anthropology.', '45.04 - Criminology.',\n       '45.06 - Economics.', '45.10 - Political Science and Government.',\n       '45.11 - Sociology.', '50.09 - Music.', '54.01 - History.',\n       '27.0301 - Applied Mathematics, General.',\n       '16.0905 - Spanish Language and Literature.',\n       '16.0300 - East Asian Languages, Literatures, and Linguistics, General.',\n       '54.0104 - History and Philosophy of Science/Technology.',\n       '50.0703 - Art History, Criticism and Conservation.',\n       '05.0108 - Near and Middle Eastern Studies.',\n       '05.0101 - African Studies.', '05.0124 - French Studies.',\n       '16.0902 - Italian Language and Literature.',\n       '16.0901 - French Language and Literature.',\n       '05.0201 - African-American/Black Studies.',\n       '05.0125 - German Studies.', '05.0104 - East Asian Studies.',\n       '05.0112 - South Asian Studies.',\n       '50.0602 - Cinematography and Film/Video Production.',\n       '16.0908 - Hispanic and Latin American Languages, Literatures, and Linguistics, General.',\n       '16.0399 - East Asian Languages, Literatures, and Linguistics, Other.',\n       '27.0304 - Computational and Applied Mathematics.',\n       '16.0402 - Russian Language and Literature.',\n       '16.0904 - Portuguese Language and Literature.',\n       '05.0126 - Italian Studies.'], dtype=object)\n\n\n\ndf.columns\n\nIndex(['Fiscal Year', 'Major', 'Sex', 'Institution Name', 'Award Level Code',\n       'Race and Ethnicity', 'Awards/Degrees Conferred', 'Unnamed: 0'],\n      dtype='object')\n\n\n\n\nCode\nimport pandas as pd\nimport altair as alt\n\n\ndf = pd.read_csv(\"filtered_data.csv\")\n\n\n\nmajors = [\n    '45.02 - Anthropology.', '45.1301 - Sociology and Anthropology.','04.08 - Architectural History, Criticism, and Conservation.'\n\n]\n\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Anthropology Related Areas of Studies(2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart\n\n\n\n\n\n\n\n\n\n\nimport pandas as pd\nimport altair as alt\n\n\n\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Anthropolgy Fields of Study (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart\n\n\n\n\n\n\n\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Biology\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+    "text": "Below you’ll find the breakdown of earned doctorates in Anthropology Fields of Study\nThe following graphs display the majors for the following CIP majors from the IPEDS survey of earned doctorates.\n1) ‘45.02 - Anthropology.’\n2) ‘04.08 - Architectural History, Criticism, and Conservation.’",
+    "crumbs": [
+      "Majors",
+      "Anthropology"
+    ]
+  },
+  {
+    "objectID": "Majors/Anthropology.html#earned-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
+    "href": "Majors/Anthropology.html#earned-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
+    "title": "Anthropology",
+    "section": "Earned Doctorates in Anthropology Related Fields of Study by Race/Ethnicity",
+    "text": "Earned Doctorates in Anthropology Related Fields of Study by Race/Ethnicity\n\n\nCode\nmajors = [\n    '45.02 - Anthropology.', '45.1301 - Sociology and Anthropology.','04.08 - Architectural History, Criticism, and Conservation.'\n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Anthropology Related Areas of Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Anthropology Related Fields of Study (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Anthropology"
+    ]
+  },
+  {
+    "objectID": "Majors/Anthropology.html#earned-doctorates-in-anthropology-related-fields-of-study-by-sex",
+    "href": "Majors/Anthropology.html#earned-doctorates-in-anthropology-related-fields-of-study-by-sex",
+    "title": "Anthropology",
+    "section": "Earned Doctorates in Anthropology Related Fields of Study by Sex",
+    "text": "Earned Doctorates in Anthropology Related Fields of Study by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Anthropolgy Related Fields of Study (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Majors",
+      "Anthropology"
+    ]
+  },
+  {
+    "objectID": "Majors/Anthropology.html#top-10-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
+    "href": "Majors/Anthropology.html#top-10-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
+    "title": "Anthropology",
+    "section": "Top 10 Instiutions Awarding Doctorates In Anthropology Related Fields of Study by Race/Ethnicity",
+    "text": "Top 10 Instiutions Awarding Doctorates In Anthropology Related Fields of Study by Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Anthropology Related Fields` of Study\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Anthropology"
+    ]
+  },
+  {
+    "objectID": "Majors/Chemistry.html",
+    "href": "Majors/Chemistry.html",
+    "title": "Chemistry",
+    "section": "",
+    "text": "Below you’ll find the breakdown of earned doctorates in Chemistry\nThe following graphs display the majors for the following CIP major from the IPEDS survey of earned doctorates.\n1) ‘40.05 - Chemistry.’",
+    "crumbs": [
+      "Majors",
+      "Chemistry"
+    ]
+  },
+  {
+    "objectID": "Majors/Chemistry.html#earned-doctorates-in-chemistry-by-raceethnicity",
+    "href": "Majors/Chemistry.html#earned-doctorates-in-chemistry-by-raceethnicity",
+    "title": "Chemistry",
+    "section": "Earned Doctorates in Chemistry by Race/Ethnicity",
+    "text": "Earned Doctorates in Chemistry by Race/Ethnicity\n\n\nCode\nmajors = ['40.05 - Chemistry.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Chemistry by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Chemistry"
+    ]
+  },
+  {
+    "objectID": "Majors/Chemistry.html#earned-doctorates-in-chemistry-by-sex",
+    "href": "Majors/Chemistry.html#earned-doctorates-in-chemistry-by-sex",
+    "title": "Chemistry",
+    "section": "Earned Doctorates in Chemistry by Sex",
+    "text": "Earned Doctorates in Chemistry by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Chemistry (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Majors",
+      "Chemistry"
+    ]
+  },
+  {
+    "objectID": "Majors/Chemistry.html#top-10-instiutions-awarding-doctorates-in-chemistry-by-raceethnicity",
+    "href": "Majors/Chemistry.html#top-10-instiutions-awarding-doctorates-in-chemistry-by-raceethnicity",
+    "title": "Chemistry",
+    "section": "Top 10 Instiutions Awarding Doctorates in Chemistry by Race/Ethnicity",
+    "text": "Top 10 Instiutions Awarding Doctorates in Chemistry by Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Chemistry (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Majors",
+      "Chemistry"
+    ]
   },
   {
     "objectID": "Majors/filtereing_online_and_for_profit.html",
