@@ -20,13 +20,21 @@ website:
       - href: index.qmd
         text: Welcome
       - about.qmd
-      - section: Majors
+      - section: Fields of Study
         contents:
           - Majors/Africana.ipynb
           - Majors/Anthropology.ipynb
+          - Majors/ArtHistory.ipynb
           - Majors/Biology.ipynb
           - Majors/Chemistry.ipynb
           - Majors/Cinema.ipynb
+          - Majors/Classics.ipynb
+          - Majors/EarthandE.ipynb
+          - Majors/EastAsian.ipynb
+          - Majors/Economics.ipynb
+          - Majors/English.ipynb
+          - Majors/FIGS.ipynb
+          
 
 format:
   html:
