@@ -28,7 +28,7 @@
     "href": "Majors/Chemistry.html",
     "title": "Chemistry",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in Chemistry.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) ‘40.05 - Chemistry.’",
+    "text": "Here you’ll find the breakdown of earned doctorates in Chemistry.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 40.05 - Chemistry.",
     "crumbs": [
       "Fields of Study",
       "Chemistry"
@@ -72,7 +72,7 @@
     "href": "Majors/Economics.html",
     "title": "Economics",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in Economics\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1)45.06 - Economics",
+    "text": "Here you’ll find the breakdown of earned doctorates in Economics\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 45.06 - Economics",
     "crumbs": [
       "Fields of Study",
       "Economics"
@@ -116,7 +116,7 @@
     "href": "Majors/Anthropology.html",
     "title": "Anthropology",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in Anthropology related fields of study\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) ‘45.02 - Anthropology.’\n2) ‘04.08 - Architectural History, Criticism, and Conservation.’",
+    "text": "Here you’ll find the breakdown of earned doctorates in Anthropology related fields of study\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 45.02 - Anthropology.\n2) 04.08 - Architectural History, Criticism, and Conservation.",
     "crumbs": [
       "Fields of Study",
       "Anthropology"
@@ -145,11 +145,11 @@
     ]
   },
   {
-    "objectID": "Majors/Anthropology.html#top-10-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
-    "href": "Majors/Anthropology.html#top-10-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity",
+    "objectID": "Majors/Anthropology.html#top-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-per-raceethnicity",
+    "href": "Majors/Anthropology.html#top-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-per-raceethnicity",
     "title": "Anthropology",
-    "section": "Top 10 Instiutions Awarding Doctorates In Anthropology Related Fields of Study by Race/Ethnicity",
-    "text": "Top 10 Instiutions Awarding Doctorates In Anthropology Related Fields of Study by Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Anthropology Related Fields of Study\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "section": "Top Instiutions Awarding Doctorates In Anthropology Related Fields of Study per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates In Anthropology Related Fields of Study per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Anthropology Related Fields of Study\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
     "crumbs": [
       "Fields of Study",
       "Anthropology"
@@ -160,7 +160,7 @@
     "href": "Majors/Classics.html",
     "title": "Classics",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in the Classics.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1)16.12 - Classics and Classical Languages, Literatures, and Linguistics.\n2)0.22 - Classical and Ancient Studies.",
+    "text": "Here you’ll find the breakdown of earned doctorates in the Classics.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 16.12 - Classics and Classical Languages, Literatures, and Linguistics.\n2) 0.22 - Classical and Ancient Studies.",
     "crumbs": [
       "Fields of Study",
       "Classics"
@@ -204,7 +204,7 @@
     "href": "Majors/English.html",
     "title": "English",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in English.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1)23.01 - English Language and Literature, General.",
+    "text": "Here you’ll find the breakdown of earned doctorates in English.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 23.01 - English Language and Literature, General.",
     "crumbs": [
       "Fields of Study",
       "English"
@@ -248,7 +248,7 @@
     "href": "Majors/Biology.html",
     "title": "Biology",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in Biology\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n\n‘26.01 - Biology, General.’",
+    "text": "Here you’ll find the breakdown of earned doctorates in Biology\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 26.01 - Biology, General.",
     "crumbs": [
       "Fields of Study",
       "Biology"
@@ -365,11 +365,11 @@
     ]
   },
   {
-    "objectID": "Majors/ArtHistory.html#top-10-instiutions-awarding-doctorates-in-art-history-by-raceethnicity",
-    "href": "Majors/ArtHistory.html#top-10-instiutions-awarding-doctorates-in-art-history-by-raceethnicity",
+    "objectID": "Majors/ArtHistory.html#top-10-instiutions-awarding-doctorates-in-art-history-per-raceethnicity",
+    "href": "Majors/ArtHistory.html#top-10-instiutions-awarding-doctorates-in-art-history-per-raceethnicity",
     "title": "Art History",
-    "section": "Top 10 Instiutions Awarding Doctorates in Art History by Race/Ethnicity",
-    "text": "Top 10 Instiutions Awarding Doctorates in Art History by Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Art History (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "section": "Top 10 Instiutions Awarding Doctorates in Art History per Race/Ethnicity",
+    "text": "Top 10 Instiutions Awarding Doctorates in Art History per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Art History (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
     "crumbs": [
       "Fields of Study",
       "Art History"
@@ -380,7 +380,7 @@
     "href": "Majors/EastAsian.html",
     "title": "East Asian Studies",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in East Asian Studies.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1)05.0104 - East Asian Studies.\n2)16.0300- East Asian Languages, Literatures, and Linguistics, General.\n3)16.0399 - East Asian Languages, Literatures, and Linguistics, Other.",
+    "text": "Here you’ll find the breakdown of earned doctorates in East Asian Studies.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 05.0104 - East Asian Studies.\n2) 16.0300- East Asian Languages, Literatures, and Linguistics, General.\n3) 16.0399 - East Asian Languages, Literatures, and Linguistics, Other.",
     "crumbs": [
       "Fields of Study",
       "East Asian Studies"
@@ -424,7 +424,7 @@
     "href": "Majors/Cinema.html",
     "title": "Cinema and Media Studies",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in Cinema and Media Studies\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) ‘09.01 - Communication and Media Studies.’\n2) ‘50.0602 - Cinematography and Film/Video Production.’\n2) ‘09.07 - Radio, Television, and Digital Communication.’",
+    "text": "Here you’ll find the breakdown of earned doctorates in Cinema and Media Studies\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 09.01 - Communication and Media Studies.\n2) 50.0602 - Cinematography and Film/Video Production.\n2) 09.07 - Radio, Television, and Digital Communication.",
     "crumbs": [
       "Fields of Study",
       "Cinema and Media Studies"
@@ -453,11 +453,11 @@
     ]
   },
   {
-    "objectID": "Majors/Cinema.html#top-10-institutions-awarding-doctorates-in-cinema-and-media-studies-by-raceethnicity",
-    "href": "Majors/Cinema.html#top-10-institutions-awarding-doctorates-in-cinema-and-media-studies-by-raceethnicity",
+    "objectID": "Majors/Cinema.html#top-institutions-awarding-doctorates-in-cinema-and-media-studies-per-raceethnicity",
+    "href": "Majors/Cinema.html#top-institutions-awarding-doctorates-in-cinema-and-media-studies-per-raceethnicity",
     "title": "Cinema and Media Studies",
-    "section": "Top 10 Institutions Awarding Doctorates in Cinema and Media Studies by Race/Ethnicity",
-    "text": "Top 10 Institutions Awarding Doctorates in Cinema and Media Studies by Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Cinema and Media Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "section": "Top Institutions Awarding Doctorates in Cinema and Media Studies per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Cinema and Media Studies per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Cinema and Media Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
     "crumbs": [
       "Fields of Study",
       "Cinema and Media Studies"
@@ -512,7 +512,7 @@
     "href": "Majors/EarthandE.html",
     "title": "Earth and Environemental Science",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in the Earth and Environmental Sciences.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1)03.01 - Natural Resources Conservation and Research.\n2) 30.44 - Geography and Environmental Studies.",
+    "text": "Here you’ll find the breakdown of earned doctorates in the Earth and Environmental Sciences.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 03.01 - Natural Resources Conservation and Research.\n2) 30.44 - Geography and Environmental Studies.",
     "crumbs": [
       "Fields of Study",
       "Earth and Environemental Science"
