@@ -21,7 +21,7 @@
     "href": "Majors/filtereing_online_and_for_profit.html",
     "title": "Majors",
     "section": "",
-    "text": "import pandas as pd\n\nIntel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.\nIntel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.\n\n\n\ndf=pd.read_csv('Concatenated_Data.csv')\n\n\ndf\n\n\n\n\n\n\n\n\nUnnamed: 0\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\n\n\n\n\n0\n0\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nAntioch University-New England\nDoctor's degree - research/scholarship\nAsian\n1\n\n\n1\n1\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nAntioch University-New England\nDoctor's degree - research/scholarship\nWhite\n4\n\n\n2\n2\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nArizona State University Campus Immersion\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n3\n3\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nArizona State University Campus Immersion\nDoctor's degree - research/scholarship\nWhite\n3\n\n\n4\n4\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nBall State University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13866\n1120\n2021\n16.0905 - Spanish Language and Literature.\nFemale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n13867\n1121\n2021\n16.0901 - French Language and Literature.\nMale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13868\n1122\n2021\n27.0301 - Applied Mathematics, General.\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13869\n1123\n2021\n50.0703 - Art History, Criticism and Conservat...\nFemale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13870\n1124\n2021\n50.0703 - Art History, Criticism and Conservat...\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n2\n\n\n\n\n13871 rows × 8 columns\n\n\n\n\nexcluded_colleges = [\n    \"American College of Technology\",\n    \"American College of Education\",\n    \"American Military University\",\n    \"American Public University System\",\n    \"American Sentinel University\",\n    \"Ashworth College\",\n    \"Aspen University\",\n    \"California InterContinental University\",\n    \"California Southern University\",\n    \"Capella University\",\n    \"Everest College\",\n    \"Everest Institute\",\n    \"London School of Business and Finance\",\n    \"National Institute of Technology\",\n    \"National Paralegal College\",\n    \"National University College\",\n    \"Neumont University\",\n    \"New England College of Business and Finance\",\n    \"New Charter University\",\n    \"NewSchool of Architecture and Design\",\n    \"Northwestern College\",\n    \"Ohio Business College\",\n    \"Olympia Career Training Institute\",\n    \"Pacific College of Health and Science\",\n    \"Parks College\",\n    \"Pennco Tech\",\n    \"Pima Medical Institute\",\n    \"Pinnacle Career Institute\",\n    \"Pioneer Pacific College\",\n    \"Platt College\",\n    \"Plaza College\",\n    \"Porter and Chester Institute\",\n    \"Post University\",\n    \"Potomac College\",\n    \"Provo College\",\n    \"Rasmussen College\",\n    \"Rocky Mountain College of Art and Design\",\n    \"Rocky Mountain University of Health Professions\",\n    \"Rocky Vista University College of Osteopathic Medicine\",\n    \"SAE Institute\",\n    \"Salem International University\",\n    \"San Joaquin Valley College\",\n    \"Schiller International University\",\n    \"School of Visual Arts\",\n    \"Seacoast Career Schools\",\n    \"Setanta College\",\n    \"South College\",\n    \"South University\",\n    \"Southern Careers Institute\",\n    \"Southern States University\",\n    \"Southwestern College\",\n    \"Spartan College of Aeronautics and Technology\",\n    \"Specs Howard School of Media Arts\",\n    \"Strayer University\",\n    \"Sullivan University\",\n    \"Suncoast College of Health\",\n    \"UEI College\",\n    \"United States University\",\n    \"Universal Technical Institute\",\n    \"University of Advancing Technology\",\n    \"University of Atlanta\",\n    \"University of Liverpool\",\n    \"University of Phoenix\",\n    \"University of the Potomac\",\n    \"U.S. Career Institute\",\n    \"Walden University\",\n    \"West Coast University\",\n    \"Western State College of Law\",\n    \"Western State University College of Law\",\n    \"WyoTech (Wyoming Technical Institute)\"\n]\n\n\nfiltered_df = df[~df['Institution Name'].isin(excluded_colleges)]\n\ndf_combined.to_csv(\"filtered_data.csv\", index=False)\n\n\ndf2= pd.read_csv('/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv')\n\n\ndf2\n\n\n\n\n\n\n\n\nFiscal Year\nCIP Code and Description (4 digit)\nAward Level Code\nSex\nRace and Ethnicity\nInstitution Name\nAwards/Degrees Conferred\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCornell University\n1\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nDoctor's degree - research/scholarship\nMale\nWhite\nCornell University\n1\n\n\n2\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCalifornia Institute of Technology\n1\n\n\n3\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCase Western Reserve University\n1\n\n\n4\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nColorado State University-Fort Collins\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13864\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wisconsin-Madison\n8\n\n\n13865\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wisconsin-Milwaukee\n3\n\n\n13866\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wyoming\n1\n\n\n13867\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nVirginia Polytechnic Institute and State Unive...\n9\n\n\n13868\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nWestern Michigan University\n3\n\n\n\n\n13869 rows × 7 columns\n\n\n\n\nnew_order= ['Fiscal Year','CIP Code and Description (4 digit)','Sex','Institution Name','Award Level Code','Race and Ethnicity', 'Awards/Degrees Conferred']\n\n\ndf2=df2[new_order]\n\n\ndf2\n\n\n\n\n\n\n\n\nFiscal Year\nCIP Code and Description (4 digit)\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nFemale\nCornell University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nMale\nCornell University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n2\n2023\n40.05 - Chemistry.\nFemale\nCalifornia Institute of Technology\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n3\n2023\n40.05 - Chemistry.\nFemale\nCase Western Reserve University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n4\n2023\n40.05 - Chemistry.\nFemale\nColorado State University-Fort Collins\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13864\n2008\n40.05 - Chemistry.\nMale\nUniversity of Wisconsin-Madison\nDoctor's degree - research/scholarship\nTemporary visa holder\n8\n\n\n13865\n2008\n40.05 - Chemistry.\nMale\nUniversity of Wisconsin-Milwaukee\nDoctor's degree - research/scholarship\nTemporary visa holder\n3\n\n\n13866\n2008\n40.05 - Chemistry.\nMale\nUniversity of Wyoming\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\n\n\n13867\n2008\n40.05 - Chemistry.\nMale\nVirginia Polytechnic Institute and State Unive...\nDoctor's degree - research/scholarship\nTemporary visa holder\n9\n\n\n13868\n2008\n40.05 - Chemistry.\nMale\nWestern Michigan University\nDoctor's degree - research/scholarship\nTemporary visa holder\n3\n\n\n\n\n13869 rows × 7 columns\n\n\n\n\ndf2=df2.rename(columns={'CIP Code and Description (4 digit)':'Major'})\n\n\ndf_combined=pd.concat([df2,filtered_df])\n\n\ndf_combined\n\n\n\n\n\n\n\n\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\nUnnamed: 0\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nFemale\nCornell University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nMale\nCornell University\nDoctor's degree - research/scholarship\nWhite\n1\nNaN\n\n\n2\n2023\n40.05 - Chemistry.\nFemale\nCalifornia Institute of Technology\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n3\n2023\n40.05 - Chemistry.\nFemale\nCase Western Reserve University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n4\n2023\n40.05 - Chemistry.\nFemale\nColorado State University-Fort Collins\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13866\n2021\n16.0905 - Spanish Language and Literature.\nFemale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n1120.0\n\n\n13867\n2021\n16.0901 - French Language and Literature.\nMale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nWhite\n1\n1121.0\n\n\n13868\n2021\n27.0301 - Applied Mathematics, General.\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n1122.0\n\n\n13869\n2021\n50.0703 - Art History, Criticism and Conservat...\nFemale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n1123.0\n\n\n13870\n2021\n50.0703 - Art History, Criticism and Conservat...\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n2\n1124.0\n\n\n\n\n27650 rows × 8 columns"
+    "text": "import pandas as pd\n\n\ndf=pd.read_csv('Concatenated_Data.csv')\n\n\ndf\n\n\n\n\n\n\n\n\nUnnamed: 0\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\n\n\n\n\n0\n0\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nAntioch University-New England\nDoctor's degree - research/scholarship\nAsian\n1\n\n\n1\n1\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nAntioch University-New England\nDoctor's degree - research/scholarship\nWhite\n4\n\n\n2\n2\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nArizona State University Campus Immersion\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n3\n3\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nArizona State University Campus Immersion\nDoctor's degree - research/scholarship\nWhite\n3\n\n\n4\n4\n2023\n03.01 - Natural Resources Conservation and Res...\nFemale\nBall State University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13866\n1120\n2021\n16.0905 - Spanish Language and Literature.\nFemale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n\n\n13867\n1121\n2021\n16.0901 - French Language and Literature.\nMale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13868\n1122\n2021\n27.0301 - Applied Mathematics, General.\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13869\n1123\n2021\n50.0703 - Art History, Criticism and Conservat...\nFemale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n13870\n1124\n2021\n50.0703 - Art History, Criticism and Conservat...\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n2\n\n\n\n\n13871 rows × 8 columns\n\n\n\n\nexcluded_colleges = [\n    \"American College of Technology\",\n    \"American College of Education\",\n    \"American Military University\",\n    \"American Public University System\",\n    \"American Sentinel University\",\n    \"Ashworth College\",\n    \"Aspen University\",\n    \"California InterContinental University\",\n    \"California Southern University\",\n    \"Capella University\",\n    \"Everest College\",\n    \"Everest Institute\",\n    \"London School of Business and Finance\",\n    \"National Institute of Technology\",\n    \"National Paralegal College\",\n    \"National University College\",\n    \"Neumont University\",\n    \"New England College of Business and Finance\",\n    \"New Charter University\",\n    \"NewSchool of Architecture and Design\",\n    \"Northwestern College\",\n    \"Ohio Business College\",\n    \"Olympia Career Training Institute\",\n    \"Pacific College of Health and Science\",\n    \"Parks College\",\n    \"Pennco Tech\",\n    \"Pima Medical Institute\",\n    \"Pinnacle Career Institute\",\n    \"Pioneer Pacific College\",\n    \"Platt College\",\n    \"Plaza College\",\n    \"Porter and Chester Institute\",\n    \"Post University\",\n    \"Potomac College\",\n    \"Provo College\",\n    \"Rasmussen College\",\n    \"Rocky Mountain College of Art and Design\",\n    \"Rocky Mountain University of Health Professions\",\n    \"Rocky Vista University College of Osteopathic Medicine\",\n    \"SAE Institute\",\n    \"Salem International University\",\n    \"San Joaquin Valley College\",\n    \"Schiller International University\",\n    \"School of Visual Arts\",\n    \"Seacoast Career Schools\",\n    \"Setanta College\",\n    \"South College\",\n    \"South University\",\n    \"Southern Careers Institute\",\n    \"Southern States University\",\n    \"Southwestern College\",\n    \"Spartan College of Aeronautics and Technology\",\n    \"Specs Howard School of Media Arts\",\n    \"Strayer University\",\n    \"Sullivan University\",\n    \"Suncoast College of Health\",\n    \"UEI College\",\n    \"United States University\",\n    \"Universal Technical Institute\",\n    \"University of Advancing Technology\",\n    \"University of Atlanta\",\n    \"University of Liverpool\",\n    \"University of Phoenix\",\n    \"University of the Potomac\",\n    \"U.S. Career Institute\",\n    \"Walden University\",\n    \"West Coast University\",\n    \"Western State College of Law\",\n    \"Western State University College of Law\",\n    \"WyoTech (Wyoming Technical Institute)\"\n]\n\n\nfiltered_df = df[~df['Institution Name'].isin(excluded_colleges)]\n\ndf_combined.to_csv(\"filtered_data.csv\", index=False)\n\n\n---------------------------------------------------------------------------\nNameError                                 Traceback (most recent call last)\nCell In[7], line 77\n      1 excluded_colleges = [\n      2     \"American College of Technology\",\n      3     \"American College of Education\",\n   (...)\n     71     \"WyoTech (Wyoming Technical Institute)\"\n     72 ]\n     75 filtered_df = df[~df['Institution Name'].isin(excluded_colleges)]\n---&gt; 77 df_combined.to_csv(\"filtered_data.csv\", index=False)\n\nNameError: name 'df_combined' is not defined\n\n\n\n\ndf2= pd.read_csv('/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv')\n\n\n---------------------------------------------------------------------------\nFileNotFoundError                         Traceback (most recent call last)\nCell In[8], line 1\n----&gt; 1 df2= pd.read_csv('/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv')\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/util/_decorators.py:211, in deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper(*args, **kwargs)\n    209     else:\n    210         kwargs[new_arg_name] = new_arg_value\n--&gt; 211 return func(*args, **kwargs)\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/util/_decorators.py:331, in deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper(*args, **kwargs)\n    325 if len(args) &gt; num_allow_args:\n    326     warnings.warn(\n    327         msg.format(arguments=_format_argument_list(allow_args)),\n    328         FutureWarning,\n    329         stacklevel=find_stack_level(),\n    330     )\n--&gt; 331 return func(*args, **kwargs)\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:950, in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)\n    935 kwds_defaults = _refine_defaults_read(\n    936     dialect,\n    937     delimiter,\n   (...)\n    946     defaults={\"delimiter\": \",\"},\n    947 )\n    948 kwds.update(kwds_defaults)\n--&gt; 950 return _read(filepath_or_buffer, kwds)\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:605, in _read(filepath_or_buffer, kwds)\n    602 _validate_names(kwds.get(\"names\", None))\n    604 # Create the parser.\n--&gt; 605 parser = TextFileReader(filepath_or_buffer, **kwds)\n    607 if chunksize or iterator:\n    608     return parser\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1442, in TextFileReader.__init__(self, f, engine, **kwds)\n   1439     self.options[\"has_index_names\"] = kwds[\"has_index_names\"]\n   1441 self.handles: IOHandles | None = None\n-&gt; 1442 self._engine = self._make_engine(f, self.engine)\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1735, in TextFileReader._make_engine(self, f, engine)\n   1733     if \"b\" not in mode:\n   1734         mode += \"b\"\n-&gt; 1735 self.handles = get_handle(\n   1736     f,\n   1737     mode,\n   1738     encoding=self.options.get(\"encoding\", None),\n   1739     compression=self.options.get(\"compression\", None),\n   1740     memory_map=self.options.get(\"memory_map\", False),\n   1741     is_text=is_text,\n   1742     errors=self.options.get(\"encoding_errors\", \"strict\"),\n   1743     storage_options=self.options.get(\"storage_options\", None),\n   1744 )\n   1745 assert self.handles is not None\n   1746 f = self.handles.handle\n\nFile ~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/common.py:856, in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)\n    851 elif isinstance(handle, str):\n    852     # Check whether the filename is to be opened in binary mode.\n    853     # Binary mode does not support 'encoding' and 'newline'.\n    854     if ioargs.encoding and \"b\" not in ioargs.mode:\n    855         # Encoding\n--&gt; 856         handle = open(\n    857             handle,\n    858             ioargs.mode,\n    859             encoding=ioargs.encoding,\n    860             errors=errors,\n    861             newline=\"\",\n    862         )\n    863     else:\n    864         # Binary mode\n    865         handle = open(handle, ioargs.mode)\n\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv'\n\n\n\n\ndf2\n\n\n\n\n\n\n\n\nFiscal Year\nCIP Code and Description (4 digit)\nAward Level Code\nSex\nRace and Ethnicity\nInstitution Name\nAwards/Degrees Conferred\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCornell University\n1\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nDoctor's degree - research/scholarship\nMale\nWhite\nCornell University\n1\n\n\n2\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCalifornia Institute of Technology\n1\n\n\n3\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nCase Western Reserve University\n1\n\n\n4\n2023\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nFemale\nHispanic or Latino\nColorado State University-Fort Collins\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13864\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wisconsin-Madison\n8\n\n\n13865\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wisconsin-Milwaukee\n3\n\n\n13866\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nUniversity of Wyoming\n1\n\n\n13867\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nVirginia Polytechnic Institute and State Unive...\n9\n\n\n13868\n2008\n40.05 - Chemistry.\nDoctor's degree - research/scholarship\nMale\nTemporary visa holder\nWestern Michigan University\n3\n\n\n\n\n13869 rows × 7 columns\n\n\n\n\nnew_order= ['Fiscal Year','CIP Code and Description (6 digit)','Sex','Institution Name','Award Level Code','Race and Ethnicity', 'Awards/Degrees Conferred']\n\n\ndf2=df2[new_order]\n\n\ndf2\n\n\n\n\n\n\n\n\nFiscal Year\nCIP Code and Description (6 digit)\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\n\n\n\n\n0\n2023\n45.0501 - Demography and Population Studies.\nFemale\nPrinceton University\nDoctor's degree - research/scholarship\nWhite\n2\n\n\n1\n2023\n45.0501 - Demography and Population Studies.\nFemale\nPrinceton University\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\n\n\n2\n2023\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of California-Berkeley\nDoctor's degree - research/scholarship\nTwo or more races\n1\n\n\n3\n2023\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nAsian\n1\n\n\n4\n2023\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nWhite\n1\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n120\n2010\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\n\n\n121\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of California-Berkeley\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\n\n\n122\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nAsian\n1\n\n\n123\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nWhite\n2\n\n\n124\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\n\n\n\n\n125 rows × 7 columns\n\n\n\n\ndf2=df2.rename(columns={'CIP Code and Description (4 digit)':'Major'})\n\n\ndf_combined=pd.concat([df2,filtered_df])\n\n\ndf_combined\n\n\n\n\n\n\n\n\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\nUnnamed: 0\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nFemale\nCornell University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nMale\nCornell University\nDoctor's degree - research/scholarship\nWhite\n1\nNaN\n\n\n2\n2023\n40.05 - Chemistry.\nFemale\nCalifornia Institute of Technology\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n3\n2023\n40.05 - Chemistry.\nFemale\nCase Western Reserve University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n4\n2023\n40.05 - Chemistry.\nFemale\nColorado State University-Fort Collins\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n13866\n2021\n16.0905 - Spanish Language and Literature.\nFemale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\n1120.0\n\n\n13867\n2021\n16.0901 - French Language and Literature.\nMale\nWashington University in St Louis\nDoctor's degree - research/scholarship\nWhite\n1\n1121.0\n\n\n13868\n2021\n27.0301 - Applied Mathematics, General.\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n1122.0\n\n\n13869\n2021\n50.0703 - Art History, Criticism and Conservat...\nFemale\nYale University\nDoctor's degree - research/scholarship\nWhite\n1\n1123.0\n\n\n13870\n2021\n50.0703 - Art History, Criticism and Conservat...\nMale\nYale University\nDoctor's degree - research/scholarship\nWhite\n2\n1124.0\n\n\n\n\n27650 rows × 8 columns\n\n\n\n\ndf=pd.read_csv('filtered_data.csv')\n\n\ndf2=pd.read_csv('/Users/dennisespejo/Desktop/ncses_table_srv_data_IPEDS_C_2025-06-29T17_37_24Z/ncses_table_raw_data_IPEDS_C_2025-06-29T17_37_24Z.csv')\n\n\nnew_order= ['Fiscal Year','CIP Code and Description (6 digit)','Sex','Institution Name','Award Level Code','Race and Ethnicity', 'Awards/Degrees Conferred']\n\n\ndf2=df2.rename(columns={'CIP Code and Description (6 digit)':'Major'})\n\n\ndf_combined=pd.concat([df,df2])\n\n\ndf_combined\n\n\n\n\n\n\n\n\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\nUnnamed: 0\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nFemale\nCornell University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nMale\nCornell University\nDoctor's degree - research/scholarship\nWhite\n1\nNaN\n\n\n2\n2023\n40.05 - Chemistry.\nFemale\nCalifornia Institute of Technology\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n3\n2023\n40.05 - Chemistry.\nFemale\nCase Western Reserve University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n4\n2023\n40.05 - Chemistry.\nFemale\nColorado State University-Fort Collins\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n120\n2010\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n121\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of California-Berkeley\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n122\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nAsian\n1\nNaN\n\n\n123\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nWhite\n2\nNaN\n\n\n124\n2010\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n\n\n27775 rows × 8 columns\n\n\n\n\nallowed_categories = [2021, 2022,2023]\n\n\nmask = df_combined['Fiscal Year'].isin(allowed_categories)\n\ndf_filtered = df_combined[mask]\n\n\ndf_filtered\n\n\n\n\n\n\n\n\nFiscal Year\nMajor\nSex\nInstitution Name\nAward Level Code\nRace and Ethnicity\nAwards/Degrees Conferred\nUnnamed: 0\n\n\n\n\n0\n2023\n04.08 - Architectural History, Criticism, and ...\nFemale\nCornell University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n1\n2023\n04.08 - Architectural History, Criticism, and ...\nMale\nCornell University\nDoctor's degree - research/scholarship\nWhite\n1\nNaN\n\n\n2\n2023\n40.05 - Chemistry.\nFemale\nCalifornia Institute of Technology\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n3\n2023\n40.05 - Chemistry.\nFemale\nCase Western Reserve University\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n4\n2023\n40.05 - Chemistry.\nFemale\nColorado State University-Fort Collins\nDoctor's degree - research/scholarship\nHispanic or Latino\n1\nNaN\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n12\n2022\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n13\n2021\n45.0501 - Demography and Population Studies.\nFemale\nPrinceton University\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n14\n2021\n45.0501 - Demography and Population Studies.\nFemale\nUniversity of California-Berkeley\nDoctor's degree - research/scholarship\nWhite\n1\nNaN\n\n\n15\n2021\n45.0501 - Demography and Population Studies.\nMale\nPrinceton University\nDoctor's degree - research/scholarship\nUnknown race and ethnicity\n1\nNaN\n\n\n16\n2021\n45.0501 - Demography and Population Studies.\nMale\nUniversity of Pennsylvania\nDoctor's degree - research/scholarship\nTemporary visa holder\n1\nNaN\n\n\n\n\n16837 rows × 8 columns\n\n\n\n\ndf_filtered.to_csv('filtered_data.csv')"
   },
   {
     "objectID": "Majors/Chemistry.html",
@@ -292,7 +292,7 @@
     "href": "Majors/FIGS.html",
     "title": "French, Italian, and German Studies (FIGS)",
     "section": "",
-    "text": "Here you’ll find the breakdown of earned doctorates in French, Italian, and German Studies (FIGS)\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1)05.0124 - French Studies.\n2)05.0125 - German Studies.\n3)05.0126 - Italian Studies.\n4)16.05 - Germanic Languages, Literatures, and Linguistics.\n5)16.0901 - French Language and Literature.\n6)16.0902 - Italian Language and Literature.",
+    "text": "Here you’ll find the breakdown of earned doctorates in French, Italian, and German Studies (FIGS)\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 05.0124 - French Studies.\n2) 05.0125 - German Studies.\n3) 05.0126 - Italian Studies.\n4) 16.05 - Germanic Languages, Literatures, and Linguistics.\n5) 16.0901 - French Language and Literature.\n6) 16.0902 - Italian Language and Literature.",
     "crumbs": [
       "Fields of Study",
       "French, Italian, and German Studies (FIGS)"
@@ -336,7 +336,7 @@
     "href": "Majors/ArtHistory.html",
     "title": "Art History",
     "section": "",
-    "text": "Below you’ll find the breakdown of earned doctorates in Art History\nThe following graphs display the fields of study for the following CIP codes from the IPEDS survey of earned doctorates.\n1) ‘50.0703 - Art History, Criticism and Conservation.’",
+    "text": "Below you’ll find the breakdown of earned doctorates in Art History\nThe following graphs display the fields of study for the following CIP codes from the IPEDS survey of earned doctorates.\n1) 50.0703 - Art History, Criticism and Conservation.",
     "crumbs": [
       "Fields of Study",
       "Art History"
@@ -559,6 +559,623 @@
     "text": "About the Project\nHello!\nThe current project uses IPEDS data to determine earned doctorates across the U.S.",
     "crumbs": [
       "About The Project"
+    ]
+  },
+  {
+    "objectID": "Majors/Music.html",
+    "href": "Majors/Music.html",
+    "title": "Music",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Music.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 50.09 - Music."
+  },
+  {
+    "objectID": "Majors/Music.html#earned-doctorates-in-music-by-raceethnicity",
+    "href": "Majors/Music.html#earned-doctorates-in-music-by-raceethnicity",
+    "title": "Music",
+    "section": "Earned Doctorates in Music by Race/Ethnicity",
+    "text": "Earned Doctorates in Music by Race/Ethnicity\n\n\nCode\nmajors = ['50.09 - Music.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Music by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+  },
+  {
+    "objectID": "Majors/Music.html#earned-doctorates-in-music-by-sex",
+    "href": "Majors/Music.html#earned-doctorates-in-music-by-sex",
+    "title": "Music",
+    "section": "Earned Doctorates in Music by Sex",
+    "text": "Earned Doctorates in Music by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Music (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart"
+  },
+  {
+    "objectID": "Majors/Music.html#top-instiutions-awarding-doctorates-in-music-per-raceethnicity",
+    "href": "Majors/Music.html#top-instiutions-awarding-doctorates-in-music-per-raceethnicity",
+    "title": "Music",
+    "section": "Top Instiutions Awarding Doctorates in Music per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Music per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Music (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+  },
+  {
+    "objectID": "Majors/Linguistics.html",
+    "href": "Majors/Linguistics.html",
+    "title": "Linguistics",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Linguistics.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 16.01 - Linguistic, Comparative, and Related Language Studies and Services.",
+    "crumbs": [
+      "Fields of Study",
+      "Linguistics"
+    ]
+  },
+  {
+    "objectID": "Majors/Linguistics.html#earned-doctorates-in-linguistics-by-raceethnicity",
+    "href": "Majors/Linguistics.html#earned-doctorates-in-linguistics-by-raceethnicity",
+    "title": "Linguistics",
+    "section": "Earned Doctorates in Linguistics by Race/Ethnicity",
+    "text": "Earned Doctorates in Linguistics by Race/Ethnicity\n\n\nCode\nmajors = ['16.01 - Linguistic, Comparative, and Related Language Studies and Services.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Linguistics by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Linguistics"
+    ]
+  },
+  {
+    "objectID": "Majors/Linguistics.html#earned-doctorates-in-linguistics-by-sex",
+    "href": "Majors/Linguistics.html#earned-doctorates-in-linguistics-by-sex",
+    "title": "Linguistics",
+    "section": "Earned Doctorates in Linguistics by Sex",
+    "text": "Earned Doctorates in Linguistics by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Linguistics (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Linguistics"
+    ]
+  },
+  {
+    "objectID": "Majors/Linguistics.html#top-instiutions-awarding-doctorates-in-linguistics-per-raceethnicity",
+    "href": "Majors/Linguistics.html#top-instiutions-awarding-doctorates-in-linguistics-per-raceethnicity",
+    "title": "Linguistics",
+    "section": "Top Instiutions Awarding Doctorates in Linguistics per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Linguistics per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Linguistics (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Linguistics"
+    ]
+  },
+  {
+    "objectID": "Majors/MiddleEastern.html",
+    "href": "Majors/MiddleEastern.html",
+    "title": "Middle Eastern Studies",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Middle Eastern Studies\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 16.11 - Middle/Near Eastern and Semitic Languages, Literatures, and Linguistics.\n2) 05.0108 - Near and Middle Eastern Studies.",
+    "crumbs": [
+      "Fields of Study",
+      "Middle Eastern Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/MiddleEastern.html#earned-doctorates-in-middle-eastern-studies-by-raceethnicity",
+    "href": "Majors/MiddleEastern.html#earned-doctorates-in-middle-eastern-studies-by-raceethnicity",
+    "title": "Middle Eastern Studies",
+    "section": "Earned Doctorates in Middle Eastern Studies by Race/Ethnicity",
+    "text": "Earned Doctorates in Middle Eastern Studies by Race/Ethnicity\n\n\nCode\nmajors = [\n   '16.11 - Middle/Near Eastern and Semitic Languages, Literatures, and Linguistics.', \n'05.0108 - Near and Middle Eastern Studies.'\n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Middle Eastern Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Middle Eastern Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Middle Eastern Studies(2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Middle Eastern Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/MiddleEastern.html#earned-doctorates-in-middle-eastern-studies-by-sex",
+    "href": "Majors/MiddleEastern.html#earned-doctorates-in-middle-eastern-studies-by-sex",
+    "title": "Middle Eastern Studies",
+    "section": "Earned Doctorates in Middle Eastern Studies by Sex",
+    "text": "Earned Doctorates in Middle Eastern Studies by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Middle Eastern Studies (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Middle Eastern Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/MiddleEastern.html#top-institutions-awarding-doctorates-in-middle-eastern-studies-per-raceethnicity",
+    "href": "Majors/MiddleEastern.html#top-institutions-awarding-doctorates-in-middle-eastern-studies-per-raceethnicity",
+    "title": "Middle Eastern Studies",
+    "section": "Top Institutions Awarding Doctorates in Middle Eastern Studies per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Middle Eastern Studies per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Middle Eastern Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Middle Eastern Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/HistoryAndSoc.html",
+    "href": "Majors/HistoryAndSoc.html",
+    "title": "History and Sociology of Science",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in History and Sociology of Science.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 54.0104 - History and Philosophy of Science/Technology.",
+    "crumbs": [
+      "Fields of Study",
+      "History and Sociology of Science"
+    ]
+  },
+  {
+    "objectID": "Majors/HistoryAndSoc.html#earned-doctorates-in-history-and-sociology-of-science-by-raceethnicity",
+    "href": "Majors/HistoryAndSoc.html#earned-doctorates-in-history-and-sociology-of-science-by-raceethnicity",
+    "title": "History and Sociology of Science",
+    "section": "Earned Doctorates in History and Sociology of Science by Race/Ethnicity",
+    "text": "Earned Doctorates in History and Sociology of Science by Race/Ethnicity\n\n\nCode\nmajors = ['54.0104 - History and Philosophy of Science/Technology.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in History and Sociology of Science by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "History and Sociology of Science"
+    ]
+  },
+  {
+    "objectID": "Majors/HistoryAndSoc.html#earned-doctorates-in-history-and-sociology-of-science-by-sex",
+    "href": "Majors/HistoryAndSoc.html#earned-doctorates-in-history-and-sociology-of-science-by-sex",
+    "title": "History and Sociology of Science",
+    "section": "Earned Doctorates in History and Sociology of Science by Sex",
+    "text": "Earned Doctorates in History and Sociology of Science by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in History and Sociology of Science (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "History and Sociology of Science"
+    ]
+  },
+  {
+    "objectID": "Majors/HistoryAndSoc.html#top-instiutions-awarding-doctorates-in-history-and-sociology-of-science-per-raceethnicity",
+    "href": "Majors/HistoryAndSoc.html#top-instiutions-awarding-doctorates-in-history-and-sociology-of-science-per-raceethnicity",
+    "title": "History and Sociology of Science",
+    "section": "Top Instiutions Awarding Doctorates in History and Sociology of Science per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in History and Sociology of Science per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in History and Sociology of Science (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "History and Sociology of Science"
+    ]
+  },
+  {
+    "objectID": "Majors/Mathematics.html",
+    "href": "Majors/Mathematics.html",
+    "title": "Mathematics",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Mathematics.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 27.01 - Mathematics.",
+    "crumbs": [
+      "Fields of Study",
+      "Mathematics"
+    ]
+  },
+  {
+    "objectID": "Majors/Mathematics.html#earned-doctorates-in-mathematics-by-raceethnicity",
+    "href": "Majors/Mathematics.html#earned-doctorates-in-mathematics-by-raceethnicity",
+    "title": "Mathematics",
+    "section": "Earned Doctorates in Mathematics by Race/Ethnicity",
+    "text": "Earned Doctorates in Mathematics by Race/Ethnicity\n\n\nCode\nmajors = ['27.01 - Mathematics.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Mathematics by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Mathematics"
+    ]
+  },
+  {
+    "objectID": "Majors/Mathematics.html#earned-doctorates-in-mathematics-by-sex",
+    "href": "Majors/Mathematics.html#earned-doctorates-in-mathematics-by-sex",
+    "title": "Mathematics",
+    "section": "Earned Doctorates in Mathematics by Sex",
+    "text": "Earned Doctorates in Mathematics by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Mathematics (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Mathematics"
+    ]
+  },
+  {
+    "objectID": "Majors/Mathematics.html#top-instiutions-awarding-doctorates-in-mathematics-per-raceethnicity",
+    "href": "Majors/Mathematics.html#top-instiutions-awarding-doctorates-in-mathematics-per-raceethnicity",
+    "title": "Mathematics",
+    "section": "Top Instiutions Awarding Doctorates in Mathematics per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Mathematics per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Mathematics (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Mathematics"
+    ]
+  },
+  {
+    "objectID": "Majors/History.html",
+    "href": "Majors/History.html",
+    "title": "History",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in History.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 54.01 History",
+    "crumbs": [
+      "Fields of Study",
+      "History"
+    ]
+  },
+  {
+    "objectID": "Majors/History.html#earned-doctorates-in-history-by-raceethnicity",
+    "href": "Majors/History.html#earned-doctorates-in-history-by-raceethnicity",
+    "title": "History",
+    "section": "Earned Doctorates in History by Race/Ethnicity",
+    "text": "Earned Doctorates in History by Race/Ethnicity\n\n\nCode\nmajors = ['54.01 - History.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in History by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "History"
+    ]
+  },
+  {
+    "objectID": "Majors/History.html#earned-doctorates-in-history-by-sex",
+    "href": "Majors/History.html#earned-doctorates-in-history-by-sex",
+    "title": "History",
+    "section": "Earned Doctorates in History by Sex",
+    "text": "Earned Doctorates in History by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in History (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "History"
+    ]
+  },
+  {
+    "objectID": "Majors/History.html#top-instiutions-awarding-doctorates-in-history-per-raceethnicity",
+    "href": "Majors/History.html#top-instiutions-awarding-doctorates-in-history-per-raceethnicity",
+    "title": "History",
+    "section": "Top Instiutions Awarding Doctorates in History per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in History per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in History (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "History"
+    ]
+  },
+  {
+    "objectID": "Majors/Philosophy.html",
+    "href": "Majors/Philosophy.html",
+    "title": "Philosophy",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Philosophy.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 38.01 - Philosophy."
+  },
+  {
+    "objectID": "Majors/Philosophy.html#earned-doctorates-in-philosophy-by-raceethnicity",
+    "href": "Majors/Philosophy.html#earned-doctorates-in-philosophy-by-raceethnicity",
+    "title": "Philosophy",
+    "section": "Earned Doctorates in Philosophy by Race/Ethnicity",
+    "text": "Earned Doctorates in Philosophy by Race/Ethnicity\n\n\nCode\nmajors = ['38.01 - Philosophy.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Philosophy by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+  },
+  {
+    "objectID": "Majors/Philosophy.html#earned-doctorates-in-philosophy-by-sex",
+    "href": "Majors/Philosophy.html#earned-doctorates-in-philosophy-by-sex",
+    "title": "Philosophy",
+    "section": "Earned Doctorates in Philosophy by Sex",
+    "text": "Earned Doctorates in Philosophy by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Philosophy (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart"
+  },
+  {
+    "objectID": "Majors/Philosophy.html#top-instiutions-awarding-doctorates-in-philosophy-per-raceethnicity",
+    "href": "Majors/Philosophy.html#top-instiutions-awarding-doctorates-in-philosophy-per-raceethnicity",
+    "title": "Philosophy",
+    "section": "Top Instiutions Awarding Doctorates in Philosophy per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Philosophy per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Philosophy (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart"
+  },
+  {
+    "objectID": "Majors/PhysicsAndAstronomy.html",
+    "href": "Majors/PhysicsAndAstronomy.html",
+    "title": "Physics and Astronomy",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Physics and Astronomy\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 40.11 - Physics and Astronomy.\n2) 40.02 - Astronomy and Astrophysics.",
+    "crumbs": [
+      "Fields of Study",
+      "Physics and Astronomy"
+    ]
+  },
+  {
+    "objectID": "Majors/PhysicsAndAstronomy.html#earned-doctorates-in-physics-and-astronomy-by-raceethnicity",
+    "href": "Majors/PhysicsAndAstronomy.html#earned-doctorates-in-physics-and-astronomy-by-raceethnicity",
+    "title": "Physics and Astronomy",
+    "section": "Earned Doctorates in Physics and Astronomy by Race/Ethnicity",
+    "text": "Earned Doctorates in Physics and Astronomy by Race/Ethnicity\n\n\nCode\nmajors = [\n  '40.11 - Physics and Astronomy.',    \n'40.02 - Astronomy and Astrophysics.'\n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Physics and Astronomy (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Physics and Astronomy (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Physics and Astronomy(2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Physics and Astronomy"
+    ]
+  },
+  {
+    "objectID": "Majors/PhysicsAndAstronomy.html#earned-doctorates-in-physics-and-astronomy-by-sex",
+    "href": "Majors/PhysicsAndAstronomy.html#earned-doctorates-in-physics-and-astronomy-by-sex",
+    "title": "Physics and Astronomy",
+    "section": "Earned Doctorates in Physics and Astronomy by Sex",
+    "text": "Earned Doctorates in Physics and Astronomy by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Physics and Astronomy (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Physics and Astronomy"
+    ]
+  },
+  {
+    "objectID": "Majors/PhysicsAndAstronomy.html#top-institutions-awarding-doctorates-in-physics-and-astronomy-per-raceethnicity",
+    "href": "Majors/PhysicsAndAstronomy.html#top-institutions-awarding-doctorates-in-physics-and-astronomy-per-raceethnicity",
+    "title": "Physics and Astronomy",
+    "section": "Top Institutions Awarding Doctorates in Physics and Astronomy per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Physics and Astronomy per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Physics and Astronomy (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Physics and Astronomy"
+    ]
+  },
+  {
+    "objectID": "Majors/PoliticalScience.html",
+    "href": "Majors/PoliticalScience.html",
+    "title": "Political Science",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Political Science.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 45.10 - Political Science and Government.",
+    "crumbs": [
+      "Fields of Study",
+      "Political Science"
+    ]
+  },
+  {
+    "objectID": "Majors/PoliticalScience.html#earned-doctorates-in-political-science-by-raceethnicity",
+    "href": "Majors/PoliticalScience.html#earned-doctorates-in-political-science-by-raceethnicity",
+    "title": "Political Science",
+    "section": "Earned Doctorates in Political Science by Race/Ethnicity",
+    "text": "Earned Doctorates in Political Science by Race/Ethnicity\n\n\nCode\nmajors = ['45.10 - Political Science and Government.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Political Science by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Political Science"
+    ]
+  },
+  {
+    "objectID": "Majors/PoliticalScience.html#earned-doctorates-in-political-science-by-sex",
+    "href": "Majors/PoliticalScience.html#earned-doctorates-in-political-science-by-sex",
+    "title": "Political Science",
+    "section": "Earned Doctorates in Political Science by Sex",
+    "text": "Earned Doctorates in Political Science by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Political Science (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Political Science"
+    ]
+  },
+  {
+    "objectID": "Majors/PoliticalScience.html#top-instiutions-awarding-doctorates-in-political-science-per-raceethnicity",
+    "href": "Majors/PoliticalScience.html#top-instiutions-awarding-doctorates-in-political-science-per-raceethnicity",
+    "title": "Political Science",
+    "section": "Top Instiutions Awarding Doctorates in Political Science per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Political Science per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Political Science (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Political Science"
+    ]
+  },
+  {
+    "objectID": "Majors/ReligiousStudies.html",
+    "href": "Majors/ReligiousStudies.html",
+    "title": "Religious Studies",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Religious Studies\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 38.00 - Philosophy and Religious Studies, General.\n2) 38.99 - Philosophy and Religious Studies, Other.",
+    "crumbs": [
+      "Fields of Study",
+      "Religious Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/ReligiousStudies.html#earned-doctorates-in-religious-studies-by-raceethnicity",
+    "href": "Majors/ReligiousStudies.html#earned-doctorates-in-religious-studies-by-raceethnicity",
+    "title": "Religious Studies",
+    "section": "Earned Doctorates in Religious Studies by Race/Ethnicity",
+    "text": "Earned Doctorates in Religious Studies by Race/Ethnicity\n\n\nCode\nmajors = [\n '38.00 - Philosophy and Religious Studies, General.',\n'38.99 - Philosophy and Religious Studies, Other.'   \n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Religious Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Religious Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Religious Studies (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Religious Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/ReligiousStudies.html#earned-doctorates-in-religious-studies-by-sex",
+    "href": "Majors/ReligiousStudies.html#earned-doctorates-in-religious-studies-by-sex",
+    "title": "Religious Studies",
+    "section": "Earned Doctorates in Religious Studies by Sex",
+    "text": "Earned Doctorates in Religious Studies by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Religious Studies (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Religious Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/ReligiousStudies.html#top-institutions-awarding-doctorates-in-religious-studies-per-raceethnicity",
+    "href": "Majors/ReligiousStudies.html#top-institutions-awarding-doctorates-in-religious-studies-per-raceethnicity",
+    "title": "Religious Studies",
+    "section": "Top Institutions Awarding Doctorates in Religious Studies per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Religious Studies per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Religious Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Religious Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html",
+    "href": "Majors/SpanishAndPortugese.html",
+    "title": "Spanish and Portuguese",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Spanish and Portuguese.\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 16.0904 - Portuguese Language and Literature.\n2) 16.0905 - Spanish Language and Literature.\n3) 16.0908 - Hispanic and Latin American Languages, Literatures, and Linguistics, General.",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#earned-doctorates-in-spanish-by-raceethnicity",
+    "href": "Majors/SpanishAndPortugese.html#earned-doctorates-in-spanish-by-raceethnicity",
+    "title": "Spanish and Portuguese",
+    "section": "Earned Doctorates in Spanish by Race/Ethnicity",
+    "text": "Earned Doctorates in Spanish by Race/Ethnicity\n\n\nCode\nmajors = [\n    \n    '16.0905 - Spanish Language and Literature.',\n    '16.0908 - Hispanic and Latin American Languages, Literatures, and Linguistics, General.'\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Spanish (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Spanish (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Spanish (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#earned-doctorates-in-portuguese-by-raceethnicity",
+    "href": "Majors/SpanishAndPortugese.html#earned-doctorates-in-portuguese-by-raceethnicity",
+    "title": "Spanish and Portuguese",
+    "section": "Earned Doctorates in Portuguese by Race/Ethnicity",
+    "text": "Earned Doctorates in Portuguese by Race/Ethnicity\n\n\nCode\nmajors2 = ['16.0904 - Portuguese Language and Literature.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors2))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Portuguese by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#earned-doctorates-in-spanish-by-sex",
+    "href": "Majors/SpanishAndPortugese.html#earned-doctorates-in-spanish-by-sex",
+    "title": "Spanish and Portuguese",
+    "section": "Earned Doctorates in Spanish by Sex",
+    "text": "Earned Doctorates in Spanish by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Spanish (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#earned-doctorates-in-portuguese-by-sex",
+    "href": "Majors/SpanishAndPortugese.html#earned-doctorates-in-portuguese-by-sex",
+    "title": "Spanish and Portuguese",
+    "section": "Earned Doctorates in Portuguese by Sex",
+    "text": "Earned Doctorates in Portuguese by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors2)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Portuguese (2021–2023)\",\n    width=400,\n    height=400\n)\n\n\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#top-institutions-awarding-doctorates-in-spanish-per-raceethnicity",
+    "href": "Majors/SpanishAndPortugese.html#top-institutions-awarding-doctorates-in-spanish-per-raceethnicity",
+    "title": "Spanish and Portuguese",
+    "section": "Top Institutions Awarding Doctorates in Spanish per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Spanish per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in South Asian Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/SpanishAndPortugese.html#top-institutions-awarding-doctorates-in-portuguese-per-raceethnicity",
+    "href": "Majors/SpanishAndPortugese.html#top-institutions-awarding-doctorates-in-portuguese-per-raceethnicity",
+    "title": "Spanish and Portuguese",
+    "section": "Top Institutions Awarding Doctorates in Portuguese per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Portuguese per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors2))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"White\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Chemistry (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Spanish and Portuguese"
+    ]
+  },
+  {
+    "objectID": "Majors/Sociology.html",
+    "href": "Majors/Sociology.html",
+    "title": "Sociology",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Sociology\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 45.11 - Sociology.\n2) 45.0501 - Demography and Population Studies.",
+    "crumbs": [
+      "Fields of Study",
+      "Sociology"
+    ]
+  },
+  {
+    "objectID": "Majors/Sociology.html#earned-doctorates-in-sociology-by-raceethnicity",
+    "href": "Majors/Sociology.html#earned-doctorates-in-sociology-by-raceethnicity",
+    "title": "Sociology",
+    "section": "Earned Doctorates in Sociology by Race/Ethnicity",
+    "text": "Earned Doctorates in Sociology by Race/Ethnicity\n\n\nCode\nmajors = [\n'45.11 - Sociology.',\n'45.0501 - Demography and Population Studies.'  \n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in Sociology (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in Sociology (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Sociology (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Sociology"
+    ]
+  },
+  {
+    "objectID": "Majors/Sociology.html#earned-doctorates-in-sociology-by-sex",
+    "href": "Majors/Sociology.html#earned-doctorates-in-sociology-by-sex",
+    "title": "Sociology",
+    "section": "Earned Doctorates in Sociology by Sex",
+    "text": "Earned Doctorates in Sociology by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Sociology (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Sociology"
+    ]
+  },
+  {
+    "objectID": "Majors/Sociology.html#top-institutions-awarding-doctorates-in-sociology-per-raceethnicity",
+    "href": "Majors/Sociology.html#top-institutions-awarding-doctorates-in-sociology-per-raceethnicity",
+    "title": "Sociology",
+    "section": "Top Institutions Awarding Doctorates in Sociology per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in Sociology per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Sociology (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Sociology"
+    ]
+  },
+  {
+    "objectID": "Majors/Criminology.html",
+    "href": "Majors/Criminology.html",
+    "title": "Criminology",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in Criminology.\nThe graphs below display demographic trends for the for the following CIP area of study from the IPEDS survey of earned doctorates.\n1) 45.04 - Criminology.",
+    "crumbs": [
+      "Fields of Study",
+      "Criminology"
+    ]
+  },
+  {
+    "objectID": "Majors/Criminology.html#earned-doctorates-in-criminology-by-raceethnicity",
+    "href": "Majors/Criminology.html#earned-doctorates-in-criminology-by-raceethnicity",
+    "title": "Criminology",
+    "section": "Earned Doctorates in Criminology by Race/Ethnicity",
+    "text": "Earned Doctorates in Criminology by Race/Ethnicity\n\n\nCode\nmajors = ['45.04 - Criminology.']\n\n\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))\n]\n\ngrouped_df = (\n    filtered_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\nchart = (\n    alt.Chart(grouped_df)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in Criminology by Race/Ethnicity (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Criminology"
+    ]
+  },
+  {
+    "objectID": "Majors/Criminology.html#earned-doctorates-in-criminology-by-sex",
+    "href": "Majors/Criminology.html#earned-doctorates-in-criminology-by-sex",
+    "title": "Criminology",
+    "section": "Earned Doctorates in Criminology by Sex",
+    "text": "Earned Doctorates in Criminology by Sex\n(Add a note here that IPEDS only includes Sex, and not a diverse array of gender identities)\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in Criminology (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "Criminology"
+    ]
+  },
+  {
+    "objectID": "Majors/Criminology.html#top-instiutions-awarding-doctorates-in-criminology-per-raceethnicity",
+    "href": "Majors/Criminology.html#top-instiutions-awarding-doctorates-in-criminology-per-raceethnicity",
+    "title": "Criminology",
+    "section": "Top Instiutions Awarding Doctorates in Criminology per Race/Ethnicity",
+    "text": "Top Instiutions Awarding Doctorates in Criminology per Race/Ethnicity\n\n\nCode\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in Criminology (2021–2023) \",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "Criminology"
+    ]
+  },
+  {
+    "objectID": "Majors/SouthAsianStudies.html",
+    "href": "Majors/SouthAsianStudies.html",
+    "title": "South Asian Studies",
+    "section": "",
+    "text": "Here you’ll find the breakdown of earned doctorates in South Asian Studies\nThe graphs below display demographic trends for the for the following CIP areas of study from the IPEDS survey of earned doctorates.\n1) 16.07 - South Asian Languages, Literatures, and Linguistics.\n2) 05.0112 - South Asian Studies.",
+    "crumbs": [
+      "Fields of Study",
+      "South Asian Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/SouthAsianStudies.html#earned-doctorates-in-south-asian-studies-by-raceethnicity",
+    "href": "Majors/SouthAsianStudies.html#earned-doctorates-in-south-asian-studies-by-raceethnicity",
+    "title": "South Asian Studies",
+    "section": "Earned Doctorates in South Asian Studies by Race/Ethnicity",
+    "text": "Earned Doctorates in South Asian Studies by Race/Ethnicity\n\n\nCode\nmajors = [\n'16.07 - South Asian Languages, Literatures, and Linguistics.',\n'05.0112 - South Asian Studies.'\n\n]\n\nmajors_df = (\n     df[df[\"Major\"].isin(majors)]\n    .groupby([\"Major\", \"Race and Ethnicity\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\noverall = (\n    majors_df.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\noverall[\"Major\"] = \"All Earned Doctorates in South Asian Studies (total)\"\nmajors_df = pd.concat([majors_df, overall], ignore_index=True)\n\n\nmajor_dropdown = alt.binding_select(\n    options=majors_df[\"Major\"].unique().tolist(),\n    name=\"Select Major: \"\n)\nmajor_param = alt.param(\n    name=\"Major\",\n    bind=major_dropdown,\n    value=\"All Earned Doctorates in South Asian Studies (total)\"\n)\n\n\nchart = (\n    alt.Chart(majors_df)\n    .add_params(major_param)\n    .transform_filter(\n        alt.datum.Major == major_param\n    )\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Race and Ethnicity:N\", sort=\"-x\", title=\"Race / Ethnicity\"),\n        color=alt.Color(\"Race and Ethnicity:N\", legend=None),\n        tooltip=[\"Race and Ethnicity:N\", \"Awards/Degrees Conferred:Q\"]\n    )\n    .properties(\n        title=\"Earned Doctorates in South Asian Studies (2021–2023)\",\n        width=600,\n        height=300\n    )\n)\n\n\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "South Asian Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/SouthAsianStudies.html#earned-doctorates-in-south-asian-studies-by-sex",
+    "href": "Majors/SouthAsianStudies.html#earned-doctorates-in-south-asian-studies-by-sex",
+    "title": "South Asian Studies",
+    "section": "Earned Doctorates in South Asian Studies by Sex",
+    "text": "Earned Doctorates in South Asian Studies by Sex\n\n\nCode\ngender_df = df[df[\"Major\"].isin(majors)]\n\n\ngender_agg = (\n    gender_df.groupby(\"Sex\")[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\n\npie_chart = alt.Chart(gender_agg).mark_arc().encode(\n    theta=alt.Theta(field=\"Awards/Degrees Conferred\", type=\"quantitative\"),\n    color=alt.Color(field=\"Sex\", type=\"nominal\", legend=alt.Legend(title=\"Gender\")),\n    tooltip=[\"Sex\", \"Awards/Degrees Conferred\"]\n).properties(\n    title=\"Gender Breakdown of Earned Doctorates in South Asian Studies (2021–2023)\",\n    width=400,\n    height=400\n)\n\npie_chart",
+    "crumbs": [
+      "Fields of Study",
+      "South Asian Studies"
+    ]
+  },
+  {
+    "objectID": "Majors/SouthAsianStudies.html#top-institutions-awarding-doctorates-in-south-asian-studies-per-raceethnicity",
+    "href": "Majors/SouthAsianStudies.html#top-institutions-awarding-doctorates-in-south-asian-studies-per-raceethnicity",
+    "title": "South Asian Studies",
+    "section": "Top Institutions Awarding Doctorates in South Asian Studies per Race/Ethnicity",
+    "text": "Top Institutions Awarding Doctorates in South Asian Studies per Race/Ethnicity\n\n\nCode\nfiltered_df = df[\n    (df[\"Major\"].isin(majors))]\n\ngrouped = (\n    filtered_df.groupby([\"Race and Ethnicity\", \"Institution Name\"])[\"Awards/Degrees Conferred\"]\n    .sum()\n    .reset_index()\n)\n\ngrouped[\"Rank\"] = grouped.groupby(\"Race and Ethnicity\")[\"Awards/Degrees Conferred\"]\\\n                         .rank(method=\"first\", ascending=False)\n\n\ntop10 = grouped[grouped[\"Rank\"] &lt;= 10]\n\n\nrace_dropdown = alt.binding_select(\n    options=top10[\"Race and Ethnicity\"].unique().tolist(),\n    name=\"Select Race/Ethnicity: \"\n)\nrace_param = alt.param(bind=race_dropdown, name=\"RaceFilter\", value=\"Black or African American\")\n\n\nchart = (\n    alt.Chart(top10)\n    .add_params(race_param)\n    .transform_filter(alt.datum[\"Race and Ethnicity\"] == race_param)\n    .mark_bar()\n    .encode(\n        x=alt.X(\"Awards/Degrees Conferred:Q\", title=\"Degrees Conferred\"),\n        y=alt.Y(\"Institution Name:N\", sort='-x', title=\"Institution\"),\n        color=alt.Color(\"Institution Name:N\", legend=None),\n        tooltip=[\"Institution Name\", \"Awards/Degrees Conferred\"]\n    )\n    .properties(\n        title=\"Top Institutions Awarding Doctorates in South Asian Studies (2021-2023)\",\n        width=600,\n        height=300\n    )\n)\n\nchart",
+    "crumbs": [
+      "Fields of Study",
+      "South Asian Studies"
     ]
   }
 ]

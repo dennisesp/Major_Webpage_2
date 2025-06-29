@@ -29,11 +29,26 @@ website:
           - Majors/Chemistry.ipynb
           - Majors/Cinema.ipynb
           - Majors/Classics.ipynb
+          - Majors/Criminology.ipynb
           - Majors/EarthandE.ipynb
           - Majors/EastAsian.ipynb
           - Majors/Economics.ipynb
           - Majors/English.ipynb
           - Majors/FIGS.ipynb
+          - Majors/History.ipynb
+          - Majors/HistoryAndSoc.ipynb
+          - Majors/Linguistics.ipynb
+          - Majors/Mathematics.ipynb
+          - Majors/MiddleEastern.ipynb
+          - Majors/Music.ipynb
+          - Majors/Philosophy.ipynb
+          - Majors/PhysicsAndAstronomy.ipynb
+          - Majors/PoliticalScience.ipynb
+          - Majors/ReligiousStudies.ipynb
+          - Majors/Sociology.ipynb
+          - Majors/SouthAsianStudies.ipynb
+          - Majors/SpanishAndPortugese.ipynb
+        
           
 
 format:
