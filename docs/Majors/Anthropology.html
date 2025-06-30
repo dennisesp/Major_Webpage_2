@@ -130,9 +130,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/A&amp;S.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Majors</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -364,88 +364,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>1) 45.02 - Anthropology.</strong></p>
 <p><strong>2) 04.08 - Architectural History, Criticism, and Conservation.</strong></p>
 </div>
+<div id="d487cffb-581c-47f8-80b3-900523070f65" class="cell" data-tags="[]" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.
+Intel MKL WARNING: Support of Intel(R) Streaming SIMD Extensions 4.2 (Intel(R) SSE4.2) enabled only processors has been deprecated. Intel oneAPI Math Kernel Library 2025.0 will require Intel(R) Advanced Vector Extensions (Intel(R) AVX) instructions.</code></pre>
+</div>
+</div>
 <section id="earned-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="earned-doctorates-in-anthropology-related-fields-of-study-by-raceethnicity">Earned Doctorates in Anthropology Related Fields of Study by Race/Ethnicity</h2>
-<div id="151fab3d-388f-4b3e-b40d-56c67ef78cf8" class="cell" data-tags="[]" data-execution_count="3">
+<div id="151fab3d-388f-4b3e-b40d-56c67ef78cf8" class="cell" data-tags="[]" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>majors <span class="op">=</span> [</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'45.02 - Anthropology.'</span>, <span class="st">'45.1301 - Sociology and Anthropology.'</span>,<span class="st">'04.08 - Architectural History, Criticism, and Conservation.'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>majors_df <span class="op">=</span> (</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     df[df[<span class="st">"Major"</span>].isin(majors)]</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">"Major"</span>, <span class="st">"Race and Ethnicity"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> (</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    majors_df.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>overall[<span class="st">"Major"</span>] <span class="op">=</span> <span class="st">"All Earned Doctorates in Anthropology Related Areas of Studies (total)"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>majors_df <span class="op">=</span> pd.concat([majors_df, overall], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>major_dropdown <span class="op">=</span> alt.binding_select(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>majors_df[<span class="st">"Major"</span>].unique().tolist(),</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Major: "</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>major_param <span class="op">=</span> alt.param(</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Major"</span>,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    bind<span class="op">=</span>major_dropdown,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    value<span class="op">=</span><span class="st">"All Earned Doctorates in Anthropology Related Areas of Studies (total)"</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    alt.Chart(majors_df)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    .add_params(major_param)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    .transform_filter(</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        alt.datum.Major <span class="op">==</span> major_param</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Race and Ethnicity:N"</span>, sort<span class="op">=</span><span class="st">"-x"</span>, title<span class="op">=</span><span class="st">"Race / Ethnicity"</span>),</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Race and Ethnicity:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Race and Ethnicity:N"</span>, <span class="st">"Awards/Degrees Conferred:Q"</span>]</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Earned Doctorates in Anthropology Related Fields of Study (2021–2023)"</span>,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>majors <span class="op">=</span> [</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'45.02 - Anthropology.'</span>, <span class="st">'45.1301 - Sociology and Anthropology.'</span>,<span class="st">'04.08 - Architectural History, Criticism, and Conservation.'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>majors_df <span class="op">=</span> (</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     df[df[<span class="st">"Major"</span>].isin(majors)]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">"Major"</span>, <span class="st">"Race and Ethnicity"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>overall <span class="op">=</span> (</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    majors_df.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>overall[<span class="st">"Major"</span>] <span class="op">=</span> <span class="st">"All Earned Doctorates in Anthropology Related Areas of Studies (total)"</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>majors_df <span class="op">=</span> pd.concat([majors_df, overall], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>major_dropdown <span class="op">=</span> alt.binding_select(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>majors_df[<span class="st">"Major"</span>].unique().tolist(),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Major: "</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>major_param <span class="op">=</span> alt.param(</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Major"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    bind<span class="op">=</span>major_dropdown,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    value<span class="op">=</span><span class="st">"All Earned Doctorates in Anthropology Related Areas of Studies (total)"</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    alt.Chart(majors_df)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    .add_params(major_param)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    .transform_filter(</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        alt.datum.Major <span class="op">==</span> major_param</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Race and Ethnicity:N"</span>, sort<span class="op">=</span><span class="st">"-x"</span>, title<span class="op">=</span><span class="st">"Race / Ethnicity"</span>),</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Race and Ethnicity:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Race and Ethnicity:N"</span>, <span class="st">"Awards/Degrees Conferred:Q"</span>]</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Earned Doctorates in Anthropology Related Fields of Study (2021–2023)"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 
 <style>
-  #altair-viz-bbb00e709a1e41deb82e65122bcb47fa.vega-embed {
+  #altair-viz-e797b6482b28443988e37e4c0df9d964.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-bbb00e709a1e41deb82e65122bcb47fa.vega-embed details,
-  #altair-viz-bbb00e709a1e41deb82e65122bcb47fa.vega-embed details summary {
+  #altair-viz-e797b6482b28443988e37e4c0df9d964.vega-embed details,
+  #altair-viz-e797b6482b28443988e37e4c0df9d964.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-bbb00e709a1e41deb82e65122bcb47fa"></div>
+<div id="altair-viz-e797b6482b28443988e37e4c0df9d964"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-bbb00e709a1e41deb82e65122bcb47fa") {
-      outputDiv = document.getElementById("altair-viz-bbb00e709a1e41deb82e65122bcb47fa");
+    if (outputDiv.id !== "altair-viz-e797b6482b28443988e37e4c0df9d964") {
+      outputDiv = document.getElementById("altair-viz-e797b6482b28443988e37e4c0df9d964");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -498,51 +504,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="earned-doctorates-in-anthropology-related-fields-of-study-by-sex" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="earned-doctorates-in-anthropology-related-fields-of-study-by-sex">Earned Doctorates in Anthropology Related Fields of Study by Sex</h2>
-<div id="e951c1c4-1468-44ff-84f4-d4bc13a963b6" class="cell" data-execution_count="4">
+<div id="e951c1c4-1468-44ff-84f4-d4bc13a963b6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gender_df <span class="op">=</span> df[df[<span class="st">"Major"</span>].isin(majors)]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gender_agg <span class="op">=</span> (</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    gender_df.groupby(<span class="st">"Sex"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>pie_chart <span class="op">=</span> alt.Chart(gender_agg).mark_arc().encode(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    theta<span class="op">=</span>alt.Theta(field<span class="op">=</span><span class="st">"Awards/Degrees Conferred"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"quantitative"</span>),</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(field<span class="op">=</span><span class="st">"Sex"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"nominal"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Gender"</span>)),</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Sex"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>).properties(</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Gender Breakdown of Earned Doctorates in Anthropolgy Related Fields of Study (2021–2023)"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">400</span>,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gender_df <span class="op">=</span> df[df[<span class="st">"Major"</span>].isin(majors)]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gender_agg <span class="op">=</span> (</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    gender_df.groupby(<span class="st">"Sex"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pie_chart <span class="op">=</span> alt.Chart(gender_agg).mark_arc().encode(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    theta<span class="op">=</span>alt.Theta(field<span class="op">=</span><span class="st">"Awards/Degrees Conferred"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"quantitative"</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(field<span class="op">=</span><span class="st">"Sex"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"nominal"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Gender"</span>)),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Sex"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>).properties(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Sex Breakdown of Earned Doctorates in Anthropolgy Related Fields of Study (2021–2023)"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">400</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="6">
 
 <style>
-  #altair-viz-47579f2641114acaa7a61d0f051c3e6f.vega-embed {
+  #altair-viz-b077aaa5a71349908a0f733d780ea6d7.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-47579f2641114acaa7a61d0f051c3e6f.vega-embed details,
-  #altair-viz-47579f2641114acaa7a61d0f051c3e6f.vega-embed details summary {
+  #altair-viz-b077aaa5a71349908a0f733d780ea6d7.vega-embed details,
+  #altair-viz-b077aaa5a71349908a0f733d780ea6d7.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-47579f2641114acaa7a61d0f051c3e6f"></div>
+<div id="altair-viz-b077aaa5a71349908a0f733d780ea6d7"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-47579f2641114acaa7a61d0f051c3e6f") {
-      outputDiv = document.getElementById("altair-viz-47579f2641114acaa7a61d0f051c3e6f");
+    if (outputDiv.id !== "altair-viz-b077aaa5a71349908a0f733d780ea6d7") {
+      outputDiv = document.getElementById("altair-viz-b077aaa5a71349908a0f733d780ea6d7");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -588,79 +594,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-a838787ea512d803df4d39e811fd8815"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "Sex", "legend": {"title": "Gender"}, "type": "nominal"}, "theta": {"field": "Awards/Degrees Conferred", "type": "quantitative"}, "tooltip": [{"field": "Sex", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}]}, "height": 400, "title": "Gender Breakdown of Earned Doctorates in Anthropolgy Related Fields of Study (2021\u20132023)", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-a838787ea512d803df4d39e811fd8815": [{"Sex": "Female", "Awards/Degrees Conferred": 709}, {"Sex": "Male", "Awards/Degrees Conferred": 381}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-2b1036a6c314b4012f9efa00cf19b098"}, "mark": {"type": "arc"}, "encoding": {"color": {"field": "Sex", "legend": {"title": "Gender"}, "type": "nominal"}, "theta": {"field": "Awards/Degrees Conferred", "type": "quantitative"}, "tooltip": [{"field": "Sex", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}]}, "height": 400, "title": "Sex Breakdown of Earned Doctorates in Anthropolgy Related Fields of Study (2021\u20132023)", "width": 400, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-2b1036a6c314b4012f9efa00cf19b098": [{"Sex": "Female", "Awards/Degrees Conferred": 701}, {"Sex": "Male", "Awards/Degrees Conferred": 368}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>
 </section>
 <section id="top-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-per-raceethnicity" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="top-instiutions-awarding-doctorates-in-anthropology-related-fields-of-study-per-raceethnicity">Top Instiutions Awarding Doctorates In Anthropology Related Fields of Study per Race/Ethnicity</h2>
-<div id="15a34765-1552-4efa-8f83-c747ee034288" class="cell" data-tags="[]" data-execution_count="6">
+<div id="15a34765-1552-4efa-8f83-c747ee034288" class="cell" data-tags="[]" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Major"</span>].isin(majors))]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> (</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    filtered_df.groupby([<span class="st">"Race and Ethnicity"</span>, <span class="st">"Institution Name"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>grouped[<span class="st">"Rank"</span>] <span class="op">=</span> grouped.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]<span class="op">\</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                         .rank(method<span class="op">=</span><span class="st">"first"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> grouped[grouped[<span class="st">"Rank"</span>] <span class="op">&lt;=</span> <span class="dv">10</span>]</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>race_dropdown <span class="op">=</span> alt.binding_select(</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>top10[<span class="st">"Race and Ethnicity"</span>].unique().tolist(),</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Race/Ethnicity: "</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>race_param <span class="op">=</span> alt.param(bind<span class="op">=</span>race_dropdown, name<span class="op">=</span><span class="st">"RaceFilter"</span>, value<span class="op">=</span><span class="st">"Black or African American"</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    alt.Chart(top10)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    .add_params(race_param)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    .transform_filter(alt.datum[<span class="st">"Race and Ethnicity"</span>] <span class="op">==</span> race_param)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Institution Name:N"</span>, sort<span class="op">=</span><span class="st">'-x'</span>, title<span class="op">=</span><span class="st">"Institution"</span>),</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Institution Name:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Institution Name"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Top Institutions Awarding Doctorates in Anthropology Related Fields of Study"</span>,</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">"Major"</span>].isin(majors))]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> (</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    filtered_df.groupby([<span class="st">"Race and Ethnicity"</span>, <span class="st">"Institution Name"</span>])[<span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>grouped[<span class="st">"Rank"</span>] <span class="op">=</span> grouped.groupby(<span class="st">"Race and Ethnicity"</span>)[<span class="st">"Awards/Degrees Conferred"</span>]<span class="op">\</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                         .rank(method<span class="op">=</span><span class="st">"first"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> grouped[grouped[<span class="st">"Rank"</span>] <span class="op">&lt;=</span> <span class="dv">10</span>]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>race_dropdown <span class="op">=</span> alt.binding_select(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    options<span class="op">=</span>top10[<span class="st">"Race and Ethnicity"</span>].unique().tolist(),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    name<span class="op">=</span><span class="st">"Select Race/Ethnicity: "</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>race_param <span class="op">=</span> alt.param(bind<span class="op">=</span>race_dropdown, name<span class="op">=</span><span class="st">"RaceFilter"</span>, value<span class="op">=</span><span class="st">"Black or African American"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> (</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    alt.Chart(top10)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    .add_params(race_param)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    .transform_filter(alt.datum[<span class="st">"Race and Ethnicity"</span>] <span class="op">==</span> race_param)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    .mark_bar()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    .encode(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>alt.X(<span class="st">"Awards/Degrees Conferred:Q"</span>, title<span class="op">=</span><span class="st">"Degrees Conferred"</span>),</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span>alt.Y(<span class="st">"Institution Name:N"</span>, sort<span class="op">=</span><span class="st">'-x'</span>, title<span class="op">=</span><span class="st">"Institution"</span>),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>alt.Color(<span class="st">"Institution Name:N"</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"Institution Name"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    .properties(</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Top Institutions Awarding Doctorates in Anthropology Related Fields of Study (2021-2023)"</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">600</span>,</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">300</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <style>
-  #altair-viz-02c288706ff34f9396bdedb0341a2a90.vega-embed {
+  #altair-viz-70a99ba3c6d14f8385bc520f7b0085c3.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-02c288706ff34f9396bdedb0341a2a90.vega-embed details,
-  #altair-viz-02c288706ff34f9396bdedb0341a2a90.vega-embed details summary {
+  #altair-viz-70a99ba3c6d14f8385bc520f7b0085c3.vega-embed details,
+  #altair-viz-70a99ba3c6d14f8385bc520f7b0085c3.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-02c288706ff34f9396bdedb0341a2a90"></div>
+<div id="altair-viz-70a99ba3c6d14f8385bc520f7b0085c3"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-02c288706ff34f9396bdedb0341a2a90") {
-      outputDiv = document.getElementById("altair-viz-02c288706ff34f9396bdedb0341a2a90");
+    if (outputDiv.id !== "altair-viz-70a99ba3c6d14f8385bc520f7b0085c3") {
+      outputDiv = document.getElementById("altair-viz-70a99ba3c6d14f8385bc520f7b0085c3");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -706,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d00237f1cb4bdcf4c9b11bc29028bfd9"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Institution Name", "legend": null, "type": "nominal"}, "tooltip": [{"field": "Institution Name", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}], "x": {"field": "Awards/Degrees Conferred", "title": "Degrees Conferred", "type": "quantitative"}, "y": {"field": "Institution Name", "sort": "-x", "title": "Institution", "type": "nominal"}}, "height": 300, "params": [{"name": "RaceFilter", "bind": {"input": "select", "options": ["American Indian or Alaska Native", "Asian", "Black or African American", "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander", "Temporary visa holder", "Two or more races", "Unknown race and ethnicity", "White"], "name": "Select Race/Ethnicity: "}, "value": "Black or African American"}], "title": "Top Institutions Awarding Doctorates in Anthropology Related Fields of Study", "transform": [{"filter": "(datum['Race and Ethnicity'] === RaceFilter)"}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-d00237f1cb4bdcf4c9b11bc29028bfd9": [{"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "New York University", "Awards/Degrees Conferred": 1, "Rank": 2.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "The University of Montana", "Awards/Degrees Conferred": 1, "Rank": 3.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Arkansas", "Awards/Degrees Conferred": 1, "Rank": 4.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of California-Irvine", "Awards/Degrees Conferred": 1, "Rank": 5.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of California-Santa Barbara", "Awards/Degrees Conferred": 1, "Rank": 6.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 1, "Rank": 7.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Georgia", "Awards/Degrees Conferred": 1, "Rank": 8.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 1, "Rank": 9.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Minnesota-Twin Cities", "Awards/Degrees Conferred": 1, "Rank": 10.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Oklahoma-Norman Campus", "Awards/Degrees Conferred": 2, "Rank": 1.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Columbia University in the City of New York", "Awards/Degrees Conferred": 3, "Rank": 6.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Emory University", "Awards/Degrees Conferred": 3, "Rank": 7.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 3, "Rank": 8.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 6, "Rank": 1.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Teachers College at Columbia University", "Awards/Degrees Conferred": 3, "Rank": 9.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 4, "Rank": 3.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 4, "Rank": 4.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 3, "Rank": 10.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 5, "Rank": 2.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Yale University", "Awards/Degrees Conferred": 4, "Rank": 5.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "American University", "Awards/Degrees Conferred": 1, "Rank": 5.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Brown University", "Awards/Degrees Conferred": 1, "Rank": 6.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Duke University", "Awards/Degrees Conferred": 1, "Rank": 7.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Emory University", "Awards/Degrees Conferred": 1, "Rank": 8.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Indiana University-Bloomington", "Awards/Degrees Conferred": 1, "Rank": 9.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Northwestern University", "Awards/Degrees Conferred": 1, "Rank": 10.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 2, "Rank": 2.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Teachers College at Columbia University", "Awards/Degrees Conferred": 3, "Rank": 1.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "University of North Carolina at Chapel Hill", "Awards/Degrees Conferred": 2, "Rank": 3.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Washington University in St Louis", "Awards/Degrees Conferred": 2, "Rank": 4.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 5, "Rank": 2.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 3, "Rank": 9.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "New York University", "Awards/Degrees Conferred": 4, "Rank": 3.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Princeton University", "Awards/Degrees Conferred": 3, "Rank": 10.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 4, "Rank": 4.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 4, "Rank": 5.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of Florida", "Awards/Degrees Conferred": 4, "Rank": 6.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 4, "Rank": 7.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of New Mexico-Main Campus", "Awards/Degrees Conferred": 4, "Rank": 8.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of South Florida", "Awards/Degrees Conferred": 6, "Rank": 1.0}, {"Race and Ethnicity": "Native Hawaiian or Other Pacific Islander", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 1, "Rank": 1.0}, {"Race and Ethnicity": "Temporary visa holder", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 6, "Rank": 1.0}, {"Race and Ethnicity": "Temporary visa holder", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 1, "Rank": 2.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Arizona State University Campus Immersion", "Awards/Degrees Conferred": 2, "Rank": 6.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 2, "Rank": 7.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 3, "Rank": 2.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "New York University", "Awards/Degrees Conferred": 3, "Rank": 3.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 3, "Rank": 4.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Davis", "Awards/Degrees Conferred": 2, "Rank": 8.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Irvine", "Awards/Degrees Conferred": 2, "Rank": 9.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 3, "Rank": 5.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 4, "Rank": 1.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of Colorado Boulder", "Awards/Degrees Conferred": 2, "Rank": 10.0}, {"Race and Ethnicity": "Unknown race and ethnicity", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 2, "Rank": 1.0}, {"Race and Ethnicity": "White", "Institution Name": "Arizona State University Campus Immersion", "Awards/Degrees Conferred": 16, "Rank": 10.0}, {"Race and Ethnicity": "White", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 28, "Rank": 2.0}, {"Race and Ethnicity": "White", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 17, "Rank": 8.0}, {"Race and Ethnicity": "White", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 19, "Rank": 6.0}, {"Race and Ethnicity": "White", "Institution Name": "Indiana University-Bloomington", "Awards/Degrees Conferred": 20, "Rank": 5.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Arizona", "Awards/Degrees Conferred": 21, "Rank": 4.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 24, "Rank": 3.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Florida", "Awards/Degrees Conferred": 30, "Rank": 1.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 19, "Rank": 7.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Pennsylvania", "Awards/Degrees Conferred": 17, "Rank": 9.0}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-f066cd7522b54383cfff97aec9345ee8"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Institution Name", "legend": null, "type": "nominal"}, "tooltip": [{"field": "Institution Name", "type": "nominal"}, {"field": "Awards/Degrees Conferred", "type": "quantitative"}], "x": {"field": "Awards/Degrees Conferred", "title": "Degrees Conferred", "type": "quantitative"}, "y": {"field": "Institution Name", "sort": "-x", "title": "Institution", "type": "nominal"}}, "height": 300, "params": [{"name": "RaceFilter", "bind": {"input": "select", "options": ["American Indian or Alaska Native", "Asian", "Black or African American", "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander", "Temporary visa holder", "Two or more races", "White"], "name": "Select Race/Ethnicity: "}, "value": "Black or African American"}], "title": "Top Institutions Awarding Doctorates in Anthropology Related Fields of Study (2021-2023)", "transform": [{"filter": "(datum['Race and Ethnicity'] === RaceFilter)"}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-f066cd7522b54383cfff97aec9345ee8": [{"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "New York University", "Awards/Degrees Conferred": 1, "Rank": 2.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "The University of Montana", "Awards/Degrees Conferred": 1, "Rank": 3.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Arkansas", "Awards/Degrees Conferred": 1, "Rank": 4.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of California-Irvine", "Awards/Degrees Conferred": 1, "Rank": 5.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of California-Santa Barbara", "Awards/Degrees Conferred": 1, "Rank": 6.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 1, "Rank": 7.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Georgia", "Awards/Degrees Conferred": 1, "Rank": 8.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 1, "Rank": 9.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Minnesota-Twin Cities", "Awards/Degrees Conferred": 1, "Rank": 10.0}, {"Race and Ethnicity": "American Indian or Alaska Native", "Institution Name": "University of Oklahoma-Norman Campus", "Awards/Degrees Conferred": 2, "Rank": 1.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Columbia University in the City of New York", "Awards/Degrees Conferred": 3, "Rank": 6.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Emory University", "Awards/Degrees Conferred": 3, "Rank": 7.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 3, "Rank": 8.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 6, "Rank": 1.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Teachers College at Columbia University", "Awards/Degrees Conferred": 3, "Rank": 9.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 4, "Rank": 3.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 4, "Rank": 4.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 3, "Rank": 10.0}, {"Race and Ethnicity": "Asian", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 5, "Rank": 2.0}, {"Race and Ethnicity": "Asian", "Institution Name": "Yale University", "Awards/Degrees Conferred": 4, "Rank": 5.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "American University", "Awards/Degrees Conferred": 1, "Rank": 5.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Brown University", "Awards/Degrees Conferred": 1, "Rank": 6.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Duke University", "Awards/Degrees Conferred": 1, "Rank": 7.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Emory University", "Awards/Degrees Conferred": 1, "Rank": 8.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Indiana University-Bloomington", "Awards/Degrees Conferred": 1, "Rank": 9.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Northwestern University", "Awards/Degrees Conferred": 1, "Rank": 10.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 2, "Rank": 2.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Teachers College at Columbia University", "Awards/Degrees Conferred": 3, "Rank": 1.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "University of North Carolina at Chapel Hill", "Awards/Degrees Conferred": 2, "Rank": 3.0}, {"Race and Ethnicity": "Black or African American", "Institution Name": "Washington University in St Louis", "Awards/Degrees Conferred": 2, "Rank": 4.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 5, "Rank": 2.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 3, "Rank": 9.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "New York University", "Awards/Degrees Conferred": 4, "Rank": 3.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Princeton University", "Awards/Degrees Conferred": 3, "Rank": 10.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "Stanford University", "Awards/Degrees Conferred": 4, "Rank": 4.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 4, "Rank": 5.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of Florida", "Awards/Degrees Conferred": 4, "Rank": 6.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 4, "Rank": 7.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of New Mexico-Main Campus", "Awards/Degrees Conferred": 4, "Rank": 8.0}, {"Race and Ethnicity": "Hispanic or Latino", "Institution Name": "University of South Florida", "Awards/Degrees Conferred": 6, "Rank": 1.0}, {"Race and Ethnicity": "Native Hawaiian or Other Pacific Islander", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 1, "Rank": 1.0}, {"Race and Ethnicity": "Temporary visa holder", "Institution Name": "Cornell University", "Awards/Degrees Conferred": 1, "Rank": 1.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Arizona State University Campus Immersion", "Awards/Degrees Conferred": 2, "Rank": 6.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 2, "Rank": 7.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 3, "Rank": 2.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "New York University", "Awards/Degrees Conferred": 3, "Rank": 3.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Berkeley", "Awards/Degrees Conferred": 3, "Rank": 4.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Davis", "Awards/Degrees Conferred": 2, "Rank": 8.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Irvine", "Awards/Degrees Conferred": 2, "Rank": 9.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of California-Los Angeles", "Awards/Degrees Conferred": 3, "Rank": 5.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 4, "Rank": 1.0}, {"Race and Ethnicity": "Two or more races", "Institution Name": "University of Colorado Boulder", "Awards/Degrees Conferred": 2, "Rank": 10.0}, {"Race and Ethnicity": "White", "Institution Name": "Arizona State University Campus Immersion", "Awards/Degrees Conferred": 16, "Rank": 9.0}, {"Race and Ethnicity": "White", "Institution Name": "CUNY Graduate School and University Center", "Awards/Degrees Conferred": 28, "Rank": 2.0}, {"Race and Ethnicity": "White", "Institution Name": "Harvard University", "Awards/Degrees Conferred": 18, "Rank": 7.0}, {"Race and Ethnicity": "White", "Institution Name": "Indiana University-Bloomington", "Awards/Degrees Conferred": 20, "Rank": 5.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Arizona", "Awards/Degrees Conferred": 21, "Rank": 4.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Chicago", "Awards/Degrees Conferred": 24, "Rank": 3.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Florida", "Awards/Degrees Conferred": 30, "Rank": 1.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Michigan-Ann Arbor", "Awards/Degrees Conferred": 19, "Rank": 6.0}, {"Race and Ethnicity": "White", "Institution Name": "University of Pennsylvania", "Awards/Degrees Conferred": 17, "Rank": 8.0}, {"Race and Ethnicity": "White", "Institution Name": "University of South Florida", "Awards/Degrees Conferred": 16, "Rank": 10.0}]}}, {"mode": "vega-lite"});
 </script>
 </div>
 </div>

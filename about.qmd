@@ -9,7 +9,7 @@ toc: false
 
 **About the Project**
 
-Based on the wide range of degree programs represented across the University of Pennsylvania's School of Arts & Sciences, the faculty recruitment guidebook is organized by specific doctoral degree fields. Each section corresponds to detailed CIP (Classification of Instructional Programs) codes—for example, Africana Studies, Anthropology, or Chemistry—and includes data visualizations showing national trends in doctorate attainment by race, gender, and institution. This structure supports faculty search committees in making equity-informed decisions tailored to their academic area.
+Based on the wide range of degree programs represented across the school, the faculty recruitment guidebook is organized by specific doctoral degree fields. Each section corresponds to detailed CIP (Classification of Instructional Programs) codes—for example, Africana Studies, Anthropology, or Chemistry—and includes data visualizations showing national trends in doctorate attainment by race, gender, and institution. This structure supports faculty search committees in making equity-informed decisions tailored to their academic area.
 
 
 </div>

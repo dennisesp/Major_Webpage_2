@@ -116,7 +116,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Majors
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,9 +132,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/A&amp;S.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Majors</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -334,15 +336,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="318140d3-c8d3-46a3-87b3-76b553d0e564" class="cell" data-tags="[]" data-execution_count="4">
+<div id="318140d3-c8d3-46a3-87b3-76b553d0e564" class="cell" data-tags="[]" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6dcaa3ce-fa19-4eb1-8ce3-9eceeb06a242" class="cell" data-tags="[]" data-execution_count="5">
+<div id="6dcaa3ce-fa19-4eb1-8ce3-9eceeb06a242" class="cell" data-tags="[]" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'Concatenated_Data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="28c48f91-c4fe-4b52-9b99-fbf498a26694" class="cell" data-tags="[]" data-execution_count="6">
+<div id="28c48f91-c4fe-4b52-9b99-fbf498a26694" class="cell" data-tags="[]" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
 
@@ -489,7 +491,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="2059e34d-23aa-4d43-a7d7-ac45280f58a5" class="cell" data-tags="[]" data-execution_count="7">
+<div id="2059e34d-23aa-4d43-a7d7-ac45280f58a5" class="cell" data-tags="[]" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>excluded_colleges <span class="op">=</span> [</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American College of Technology"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American College of Education"</span>,</span>
@@ -504,926 +506,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Everest College"</span>,</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Everest Institute"</span>,</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"London School of Business and Finance"</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National Institute of Technology"</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National Paralegal College"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National University College"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Neumont University"</span>,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"New England College of Business and Finance"</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"New Charter University"</span>,</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NewSchool of Architecture and Design"</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Northwestern College"</span>,</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ohio Business College"</span>,</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Olympia Career Training Institute"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pacific College of Health and Science"</span>,</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Parks College"</span>,</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pennco Tech"</span>,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pima Medical Institute"</span>,</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pinnacle Career Institute"</span>,</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pioneer Pacific College"</span>,</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Platt College"</span>,</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Plaza College"</span>,</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Porter and Chester Institute"</span>,</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Post University"</span>,</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Potomac College"</span>,</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Provo College"</span>,</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rasmussen College"</span>,</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Mountain College of Art and Design"</span>,</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Mountain University of Health Professions"</span>,</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Vista University College of Osteopathic Medicine"</span>,</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SAE Institute"</span>,</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Salem International University"</span>,</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"San Joaquin Valley College"</span>,</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Schiller International University"</span>,</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"School of Visual Arts"</span>,</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Seacoast Career Schools"</span>,</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Setanta College"</span>,</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"South College"</span>,</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"South University"</span>,</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southern Careers Institute"</span>,</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southern States University"</span>,</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southwestern College"</span>,</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Spartan College of Aeronautics and Technology"</span>,</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Specs Howard School of Media Arts"</span>,</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Strayer University"</span>,</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sullivan University"</span>,</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Suncoast College of Health"</span>,</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UEI College"</span>,</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"United States University"</span>,</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Universal Technical Institute"</span>,</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Advancing Technology"</span>,</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Atlanta"</span>,</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Liverpool"</span>,</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Phoenix"</span>,</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of the Potomac"</span>,</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="st">"U.S. Career Institute"</span>,</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Walden University"</span>,</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="st">"West Coast University"</span>,</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Western State College of Law"</span>,</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Western State University College of Law"</span>,</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WyoTech (Wyoming Technical Institute)"</span></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Liberty University',</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="er">    "National Institute of Technology",</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National Paralegal College"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National University College"</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Neumont University"</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"New England College of Business and Finance"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"New Charter University"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NewSchool of Architecture and Design"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Northwestern College"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ohio Business College"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Olympia Career Training Institute"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pacific College of Health and Science"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Parks College"</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pennco Tech"</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pima Medical Institute"</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pinnacle Career Institute"</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Pioneer Pacific College"</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Platt College"</span>,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Plaza College"</span>,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Porter and Chester Institute"</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Post University"</span>,</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Potomac College"</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Provo College"</span>,</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rasmussen College"</span>,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Mountain College of Art and Design"</span>,</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Mountain University of Health Professions"</span>,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Rocky Vista University College of Osteopathic Medicine"</span>,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SAE Institute"</span>,</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Salem International University"</span>,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"San Joaquin Valley College"</span>,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Schiller International University"</span>,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"School of Visual Arts"</span>,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Seacoast Career Schools"</span>,</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Setanta College"</span>,</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"South College"</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">"South University"</span>,</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southern Careers Institute"</span>,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southern States University"</span>,</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Southwestern College"</span>,</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Spartan College of Aeronautics and Technology"</span>,</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Specs Howard School of Media Arts"</span>,</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Strayer University"</span>,</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sullivan University"</span>,</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Suncoast College of Health"</span>,</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UEI College"</span>,</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">"United States University"</span>,</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Universal Technical Institute"</span>,</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Advancing Technology"</span>,</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Atlanta"</span>,</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Liverpool"</span>,</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Phoenix"</span>,</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of the Potomac"</span>,</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    <span class="st">"U.S. Career Institute"</span>,</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Walden University"</span>,</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">"West Coast University"</span>,</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Western State College of Law"</span>,</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Western State University College of Law"</span>,</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="st">"WyoTech (Wyoming Technical Institute)"</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[<span class="op">~</span>df[<span class="st">'Institution Name'</span>].isin(excluded_colleges)]</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>df_combined.to_csv(<span class="st">"filtered_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[<span class="op">~</span>df[<span class="st">'Institution Name'</span>].isin(excluded_colleges)]</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>df_combined.to_csv(<span class="st">"filtered_data.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[7], line 77</span>
-<span class="ansi-green-fg ansi-bold">      1</span> excluded_colleges <span style="color:rgb(98,98,98)">=</span> [
-<span class="ansi-green-fg ansi-bold">      2</span>     <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">American College of Technology</span><span style="color:rgb(175,0,0)">"</span>,
-<span class="ansi-green-fg ansi-bold">      3</span>     <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">American College of Education</span><span style="color:rgb(175,0,0)">"</span>,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-fg ansi-bold">     71</span>     <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">WyoTech (Wyoming Technical Institute)</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg ansi-bold">     72</span> ]
-<span class="ansi-green-fg ansi-bold">     75</span> filtered_df <span style="color:rgb(98,98,98)">=</span> df[<span style="color:rgb(98,98,98)">~</span>df[<span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">Institution Name</span><span style="color:rgb(175,0,0)">'</span>]<span style="color:rgb(98,98,98)">.</span>isin(excluded_colleges)]
-<span class="ansi-green-fg">---&gt; 77</span> <span class="ansi-yellow-bg">df_combined</span><span style="color:rgb(98,98,98)">.</span>to_csv(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">filtered_data.csv</span><span style="color:rgb(175,0,0)">"</span>, index<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">False</span>)
-
-<span class="ansi-red-fg">NameError</span>: name 'df_combined' is not defined</pre>
+<pre><span class="ansi-cyan-fg">  Cell </span><span class="ansi-green-fg">In[26], line 15</span>
+<span class="ansi-red-fg">    "Liberty University',</span>
+    ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 15)
+</pre>
 </div>
 </div>
 </div>
-<div id="9ccc21d1-9b3c-4f1e-91ea-46e8cc5694ba" class="cell" data-tags="[]" data-execution_count="8">
+<div id="9ccc21d1-9b3c-4f1e-91ea-46e8cc5694ba" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span> pd.read_csv(<span class="st">'/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[8], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> df2<span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_csv</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/util/_decorators.py:211</span>, in <span class="ansi-cyan-fg">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-fg ansi-bold">    209</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg ansi-bold">    210</span>         kwargs[new_arg_name] <span style="color:rgb(98,98,98)">=</span> new_arg_value
-<span class="ansi-green-fg">--&gt; 211</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">func</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/util/_decorators.py:331</span>, in <span class="ansi-cyan-fg">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-fg ansi-bold">    325</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">len</span>(args) <span style="color:rgb(98,98,98)">&gt;</span> num_allow_args:
-<span class="ansi-green-fg ansi-bold">    326</span>     warnings<span style="color:rgb(98,98,98)">.</span>warn(
-<span class="ansi-green-fg ansi-bold">    327</span>         msg<span style="color:rgb(98,98,98)">.</span>format(arguments<span style="color:rgb(98,98,98)">=</span>_format_argument_list(allow_args)),
-<span class="ansi-green-fg ansi-bold">    328</span>         <span style="font-weight:bold;color:rgb(215,95,95)">FutureWarning</span>,
-<span class="ansi-green-fg ansi-bold">    329</span>         stacklevel<span style="color:rgb(98,98,98)">=</span>find_stack_level(),
-<span class="ansi-green-fg ansi-bold">    330</span>     )
-<span class="ansi-green-fg">--&gt; 331</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">func</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:950</span>, in <span class="ansi-cyan-fg">read_csv</span><span class="ansi-blue-fg">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="ansi-green-fg ansi-bold">    935</span> kwds_defaults <span style="color:rgb(98,98,98)">=</span> _refine_defaults_read(
-<span class="ansi-green-fg ansi-bold">    936</span>     dialect,
-<span class="ansi-green-fg ansi-bold">    937</span>     delimiter,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-fg ansi-bold">    946</span>     defaults<span style="color:rgb(98,98,98)">=</span>{<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">delimiter</span><span style="color:rgb(175,0,0)">"</span>: <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">,</span><span style="color:rgb(175,0,0)">"</span>},
-<span class="ansi-green-fg ansi-bold">    947</span> )
-<span class="ansi-green-fg ansi-bold">    948</span> kwds<span style="color:rgb(98,98,98)">.</span>update(kwds_defaults)
-<span class="ansi-green-fg">--&gt; 950</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_read</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">kwds</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:605</span>, in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-fg">(filepath_or_buffer, kwds)</span>
-<span class="ansi-green-fg ansi-bold">    602</span> _validate_names(kwds<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">names</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>))
-<span class="ansi-green-fg ansi-bold">    604</span> <span style="font-style:italic;color:rgb(95,135,135)"># Create the parser.</span>
-<span class="ansi-green-fg">--&gt; 605</span> parser <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">TextFileReader</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwds</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">    607</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> chunksize <span style="font-weight:bold;color:rgb(175,0,255)">or</span> iterator:
-<span class="ansi-green-fg ansi-bold">    608</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> parser
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1442</span>, in <span class="ansi-cyan-fg">TextFileReader.__init__</span><span class="ansi-blue-fg">(self, f, engine, **kwds)</span>
-<span class="ansi-green-fg ansi-bold">   1439</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> kwds[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>]
-<span class="ansi-green-fg ansi-bold">   1441</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles: IOHandles <span style="color:rgb(98,98,98)">|</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
-<span class="ansi-green-fg">-&gt; 1442</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_engine <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_make_engine</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1735</span>, in <span class="ansi-cyan-fg">TextFileReader._make_engine</span><span class="ansi-blue-fg">(self, f, engine)</span>
-<span class="ansi-green-fg ansi-bold">   1733</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> mode:
-<span class="ansi-green-fg ansi-bold">   1734</span>         mode <span style="color:rgb(98,98,98)">+</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg">-&gt; 1735</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_handle</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg ansi-bold">   1736</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1737</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1738</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">encoding</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">encoding</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1739</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compression</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">compression</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1740</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">memory_map</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">memory_map</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">False</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1741</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">is_text</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">is_text</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1742</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">errors</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">encoding_errors</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">strict</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1743</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">storage_options</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">   1744</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">   1745</span> <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
-<span class="ansi-green-fg ansi-bold">   1746</span> f <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles<span style="color:rgb(98,98,98)">.</span>handle
-
-File <span class="ansi-green-fg">~/mambaforge/envs/musa-550-fall-2024/lib/python3.10/site-packages/pandas/io/common.py:856</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="ansi-green-fg ansi-bold">    851</span> <span style="font-weight:bold;color:rgb(0,135,0)">elif</span> <span style="color:rgb(0,135,0)">isinstance</span>(handle, <span style="color:rgb(0,135,0)">str</span>):
-<span class="ansi-green-fg ansi-bold">    852</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Check whether the filename is to be opened in binary mode.</span>
-<span class="ansi-green-fg ansi-bold">    853</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode does not support 'encoding' and 'newline'.</span>
-<span class="ansi-green-fg ansi-bold">    854</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> ioargs<span style="color:rgb(98,98,98)">.</span>encoding <span style="font-weight:bold;color:rgb(175,0,255)">and</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> ioargs<span style="color:rgb(98,98,98)">.</span>mode:
-<span class="ansi-green-fg ansi-bold">    855</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Encoding</span>
-<span class="ansi-green-fg">--&gt; 856</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-fg ansi-bold">    857</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">handle</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    858</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">ioargs</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    859</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">encoding</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">ioargs</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">encoding</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    860</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">errors</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">errors</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    861</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">newline</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-fg ansi-bold">    862</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-fg ansi-bold">    863</span>     <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
-<span class="ansi-green-fg ansi-bold">    864</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Binary mode</span>
-<span class="ansi-green-fg ansi-bold">    865</span>         handle <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">open</span>(handle, ioargs<span style="color:rgb(98,98,98)">.</span>mode)
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: '/Users/dennisespejo/Desktop/ncses_table_raw_data_IPEDS_C_2025-06-24T17_40_36Z.csv'</pre>
 </div>
-</div>
-</div>
-<div id="598a23d7-dfee-4ba7-b6dd-f436ed68c0d6" class="cell" data-tags="[]" data-execution_count="20">
+<div id="598a23d7-dfee-4ba7-b6dd-f436ed68c0d6" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Fiscal Year</th>
-<th data-quarto-table-cell-role="th">CIP Code and Description (4 digit)</th>
-<th data-quarto-table-cell-role="th">Award Level Code</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">Race and Ethnicity</th>
-<th data-quarto-table-cell-role="th">Institution Name</th>
-<th data-quarto-table-cell-role="th">Awards/Degrees Conferred</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Female</td>
-<td>Hispanic or Latino</td>
-<td>Cornell University</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>White</td>
-<td>Cornell University</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Female</td>
-<td>Hispanic or Latino</td>
-<td>California Institute of Technology</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Female</td>
-<td>Hispanic or Latino</td>
-<td>Case Western Reserve University</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Female</td>
-<td>Hispanic or Latino</td>
-<td>Colorado State University-Fort Collins</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13864</td>
-<td>2008</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>Temporary visa holder</td>
-<td>University of Wisconsin-Madison</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13865</td>
-<td>2008</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>Temporary visa holder</td>
-<td>University of Wisconsin-Milwaukee</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13866</td>
-<td>2008</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>Temporary visa holder</td>
-<td>University of Wyoming</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13867</td>
-<td>2008</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>Temporary visa holder</td>
-<td>Virginia Polytechnic Institute and State Unive...</td>
-<td>9</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13868</td>
-<td>2008</td>
-<td>40.05 - Chemistry.</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Male</td>
-<td>Temporary visa holder</td>
-<td>Western Michigan University</td>
-<td>3</td>
-</tr>
-</tbody>
-</table>
-
-<p>13869 rows × 7 columns</p>
 </div>
-</div>
-</div>
-<div id="ed7364e0-49c3-42a9-823d-78372fb39a0e" class="cell" data-tags="[]" data-execution_count="14">
+<div id="ed7364e0-49c3-42a9-823d-78372fb39a0e" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>new_order<span class="op">=</span> [<span class="st">'Fiscal Year'</span>,<span class="st">'CIP Code and Description (6 digit)'</span>,<span class="st">'Sex'</span>,<span class="st">'Institution Name'</span>,<span class="st">'Award Level Code'</span>,<span class="st">'Race and Ethnicity'</span>, <span class="st">'Awards/Degrees Conferred'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e766d6fd-0912-42aa-9d40-acb39e106773" class="cell" data-tags="[]" data-execution_count="15">
+<div id="e766d6fd-0912-42aa-9d40-acb39e106773" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df2[new_order]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ecdfe397-aa2b-4654-aa4b-6629cc3f3ae3" class="cell" data-tags="[]" data-execution_count="16">
+<div id="ecdfe397-aa2b-4654-aa4b-6629cc3f3ae3" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Fiscal Year</th>
-<th data-quarto-table-cell-role="th">CIP Code and Description (6 digit)</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">Institution Name</th>
-<th data-quarto-table-cell-role="th">Award Level Code</th>
-<th data-quarto-table-cell-role="th">Race and Ethnicity</th>
-<th data-quarto-table-cell-role="th">Awards/Degrees Conferred</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>Princeton University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>Princeton University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of California-Berkeley</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Two or more races</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Asian</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">120</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">121</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of California-Berkeley</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">122</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Asian</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">123</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">124</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-<p>125 rows × 7 columns</p>
 </div>
-</div>
-</div>
-<div id="bcff1481-a9b3-462e-9ae6-2c6a993226b9" class="cell" data-tags="[]" data-execution_count="24">
+<div id="bcff1481-a9b3-462e-9ae6-2c6a993226b9" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df2.rename(columns<span class="op">=</span>{<span class="st">'CIP Code and Description (4 digit)'</span>:<span class="st">'Major'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d78f854f-7b11-424a-8da5-269e8baa157e" class="cell" data-tags="[]" data-execution_count="25">
+<div id="d78f854f-7b11-424a-8da5-269e8baa157e" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_combined<span class="op">=</span>pd.concat([df2,filtered_df])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9f499924-9a69-4584-a85c-1c36b2557966" class="cell" data-tags="[]" data-execution_count="26">
+<div id="9f499924-9a69-4584-a85c-1c36b2557966" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Fiscal Year</th>
-<th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">Institution Name</th>
-<th data-quarto-table-cell-role="th">Award Level Code</th>
-<th data-quarto-table-cell-role="th">Race and Ethnicity</th>
-<th data-quarto-table-cell-role="th">Awards/Degrees Conferred</th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Female</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Male</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>California Institute of Technology</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Case Western Reserve University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Colorado State University-Fort Collins</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13866</td>
-<td>2021</td>
-<td>16.0905 - Spanish Language and Literature.</td>
-<td>Female</td>
-<td>Washington University in St Louis</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>1120.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13867</td>
-<td>2021</td>
-<td>16.0901 - French Language and Literature.</td>
-<td>Male</td>
-<td>Washington University in St Louis</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>1121.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13868</td>
-<td>2021</td>
-<td>27.0301 - Applied Mathematics, General.</td>
-<td>Male</td>
-<td>Yale University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>1122.0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13869</td>
-<td>2021</td>
-<td>50.0703 - Art History, Criticism and Conservat...</td>
-<td>Female</td>
-<td>Yale University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>1123.0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">13870</td>
-<td>2021</td>
-<td>50.0703 - Art History, Criticism and Conservat...</td>
-<td>Male</td>
-<td>Yale University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>2</td>
-<td>1124.0</td>
-</tr>
-</tbody>
-</table>
-
-<p>27650 rows × 8 columns</p>
 </div>
-</div>
-</div>
-<div id="496fa171-3035-4710-876c-bf0a265c87c0" class="cell" data-execution_count="19">
+<div id="496fa171-3035-4710-876c-bf0a265c87c0" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'filtered_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="75b3a98a-6c36-414d-a8df-c65550626223" class="cell" data-tags="[]" data-execution_count="20">
+<div id="75b3a98a-6c36-414d-a8df-c65550626223" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">'/Users/dennisespejo/Desktop/ncses_table_srv_data_IPEDS_C_2025-06-29T17_37_24Z/ncses_table_raw_data_IPEDS_C_2025-06-29T17_37_24Z.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6f90669b-162e-4f6a-9ecb-b404dd1ff5ff" class="cell" data-tags="[]" data-execution_count="21">
+<div id="6f90669b-162e-4f6a-9ecb-b404dd1ff5ff" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>new_order<span class="op">=</span> [<span class="st">'Fiscal Year'</span>,<span class="st">'CIP Code and Description (6 digit)'</span>,<span class="st">'Sex'</span>,<span class="st">'Institution Name'</span>,<span class="st">'Award Level Code'</span>,<span class="st">'Race and Ethnicity'</span>, <span class="st">'Awards/Degrees Conferred'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9ec8fb94-a696-445b-983f-f270af4d194f" class="cell" data-tags="[]" data-execution_count="22">
+<div id="9ec8fb94-a696-445b-983f-f270af4d194f" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>df2.rename(columns<span class="op">=</span>{<span class="st">'CIP Code and Description (6 digit)'</span>:<span class="st">'Major'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="226f19f1-a877-4465-9701-0d3ad9964aa0" class="cell" data-tags="[]" data-execution_count="24">
+<div id="226f19f1-a877-4465-9701-0d3ad9964aa0" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_combined<span class="op">=</span>pd.concat([df,df2])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6b430086-fe9a-4e6a-85d5-e23c30f784f7" class="cell" data-tags="[]" data-execution_count="25">
+<div id="6b430086-fe9a-4e6a-85d5-e23c30f784f7" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Fiscal Year</th>
-<th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">Institution Name</th>
-<th data-quarto-table-cell-role="th">Award Level Code</th>
-<th data-quarto-table-cell-role="th">Race and Ethnicity</th>
-<th data-quarto-table-cell-role="th">Awards/Degrees Conferred</th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Female</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Male</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>California Institute of Technology</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Case Western Reserve University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Colorado State University-Fort Collins</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">120</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">121</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of California-Berkeley</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">122</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Asian</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">123</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>2</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">124</td>
-<td>2010</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-<p>27775 rows × 8 columns</p>
 </div>
-</div>
-</div>
-<div id="8fef0c25-2756-4689-950b-5b8f49fcba17" class="cell" data-tags="[]" data-execution_count="29">
+<div id="8fef0c25-2756-4689-950b-5b8f49fcba17" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>allowed_categories <span class="op">=</span> [<span class="dv">2021</span>, <span class="dv">2022</span>,<span class="dv">2023</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c35905df-6c88-4dd2-98bb-48d7ebed9c1d" class="cell" data-tags="[]" data-execution_count="30">
+<div id="c35905df-6c88-4dd2-98bb-48d7ebed9c1d" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> df_combined[<span class="st">'Fiscal Year'</span>].isin(allowed_categories)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> df_combined[mask]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4d0d14cb-80cc-4a23-a1b2-83bbfb85f05e" class="cell" data-tags="[]" data-execution_count="31">
+<div id="4d0d14cb-80cc-4a23-a1b2-83bbfb85f05e" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Fiscal Year</th>
-<th data-quarto-table-cell-role="th">Major</th>
-<th data-quarto-table-cell-role="th">Sex</th>
-<th data-quarto-table-cell-role="th">Institution Name</th>
-<th data-quarto-table-cell-role="th">Award Level Code</th>
-<th data-quarto-table-cell-role="th">Race and Ethnicity</th>
-<th data-quarto-table-cell-role="th">Awards/Degrees Conferred</th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Female</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2023</td>
-<td>04.08 - Architectural History, Criticism, and ...</td>
-<td>Male</td>
-<td>Cornell University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>California Institute of Technology</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Case Western Reserve University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2023</td>
-<td>40.05 - Chemistry.</td>
-<td>Female</td>
-<td>Colorado State University-Fort Collins</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Hispanic or Latino</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>2022</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>2021</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>Princeton University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>2021</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Female</td>
-<td>University of California-Berkeley</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>White</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>2021</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>Princeton University</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Unknown race and ethnicity</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>2021</td>
-<td>45.0501 - Demography and Population Studies.</td>
-<td>Male</td>
-<td>University of Pennsylvania</td>
-<td>Doctor's degree - research/scholarship</td>
-<td>Temporary visa holder</td>
-<td>1</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-<p>16837 rows × 8 columns</p>
 </div>
-</div>
-</div>
-<div id="c33f7a1f-8e98-43bc-b6da-013a3f03abd3" class="cell" data-tags="[]" data-execution_count="32">
+<div id="c33f7a1f-8e98-43bc-b6da-013a3f03abd3" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_filtered.to_csv(<span class="st">'filtered_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

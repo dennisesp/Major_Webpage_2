@@ -1,4 +1,4 @@
-,Fiscal Year,Major,Sex,Institution Name,Award Level Code,Race and Ethnicity,Awards/Degrees Conferred,Unnamed: 0
+Unnamed: 0.1,Fiscal Year,Major,Sex,Institution Name,Award Level Code,Race and Ethnicity,Awards/Degrees Conferred,Unnamed: 0
 0,2023,"04.08 - Architectural History, Criticism, and Conservation.",Female,Cornell University,Doctor's degree - research/scholarship,Hispanic or Latino,1,
 1,2023,"04.08 - Architectural History, Criticism, and Conservation.",Male,Cornell University,Doctor's degree - research/scholarship,White,1,
 2,2023,40.05 - Chemistry.,Female,California Institute of Technology,Doctor's degree - research/scholarship,Hispanic or Latino,1,
@@ -3218,8 +3218,6 @@
 14046,2023,09.01 - Communication and Media Studies.,Female,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,White,3,177.0
 14047,2023,09.01 - Communication and Media Studies.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,Asian,2,178.0
 14048,2023,09.01 - Communication and Media Studies.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,1,179.0
-14049,2023,09.01 - Communication and Media Studies.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,180.0
-14050,2023,09.01 - Communication and Media Studies.,Female,Liberty University,Doctor's degree - research/scholarship,White,10,181.0
 14051,2023,09.01 - Communication and Media Studies.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Black or African American,1,182.0
 14052,2023,09.01 - Communication and Media Studies.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,3,183.0
 14053,2023,09.01 - Communication and Media Studies.,Female,Michigan State University,Doctor's degree - research/scholarship,Asian,1,184.0
@@ -3236,9 +3234,6 @@
 14064,2023,09.01 - Communication and Media Studies.,Female,Pennsylvania State University-Main Campus,Doctor's degree - research/scholarship,White,5,195.0
 14065,2023,09.01 - Communication and Media Studies.,Female,Purdue University-Main Campus,Doctor's degree - research/scholarship,Hispanic or Latino,1,196.0
 14066,2023,09.01 - Communication and Media Studies.,Female,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,1,197.0
-14067,2023,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,Hispanic or Latino,1,198.0
-14068,2023,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,Black or African American,5,199.0
-14069,2023,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,White,6,200.0
 14070,2023,09.01 - Communication and Media Studies.,Female,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,1,201.0
 14071,2023,09.01 - Communication and Media Studies.,Female,Stanford University,Doctor's degree - research/scholarship,Asian,2,202.0
 14072,2023,09.01 - Communication and Media Studies.,Female,Stanford University,Doctor's degree - research/scholarship,White,2,203.0
@@ -3337,9 +3332,6 @@
 14165,2023,09.01 - Communication and Media Studies.,Male,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,White,2,296.0
 14166,2023,09.01 - Communication and Media Studies.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,7,297.0
 14167,2023,09.01 - Communication and Media Studies.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,Two or more races,1,298.0
-14168,2023,09.01 - Communication and Media Studies.,Male,Liberty University,Doctor's degree - research/scholarship,Asian,2,299.0
-14169,2023,09.01 - Communication and Media Studies.,Male,Liberty University,Doctor's degree - research/scholarship,White,1,300.0
-14170,2023,09.01 - Communication and Media Studies.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,301.0
 14171,2023,09.01 - Communication and Media Studies.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Black or African American,1,302.0
 14172,2023,09.01 - Communication and Media Studies.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,3,303.0
 14173,2023,09.01 - Communication and Media Studies.,Male,Michigan State University,Doctor's degree - research/scholarship,White,3,304.0
@@ -3349,9 +3341,6 @@
 14177,2023,09.01 - Communication and Media Studies.,Male,Ohio University-Main Campus,Doctor's degree - research/scholarship,White,3,308.0
 14178,2023,09.01 - Communication and Media Studies.,Male,Pennsylvania State University-Main Campus,Doctor's degree - research/scholarship,White,2,309.0
 14179,2023,09.01 - Communication and Media Studies.,Male,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,2,310.0
-14180,2023,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,Black or African American,1,311.0
-14181,2023,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,White,2,312.0
-14182,2023,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,Two or more races,1,313.0
 14183,2023,09.01 - Communication and Media Studies.,Male,Rensselaer Polytechnic Institute,Doctor's degree - research/scholarship,White,1,314.0
 14184,2023,09.01 - Communication and Media Studies.,Male,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,2,315.0
 14185,2023,09.01 - Communication and Media Studies.,Male,Stanford University,Doctor's degree - research/scholarship,White,1,316.0
@@ -3420,8 +3409,6 @@
 14248,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Arizona State University Campus Immersion,Doctor's degree - research/scholarship,White,1,379.0
 14249,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Duke University,Doctor's degree - research/scholarship,Black or African American,1,380.0
 14250,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Georgia Institute of Technology-Main Campus,Doctor's degree - research/scholarship,White,1,381.0
-14251,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,382.0
-14252,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Liberty University,Doctor's degree - research/scholarship,White,2,383.0
 14253,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Massachusetts Institute of Technology,Doctor's degree - research/scholarship,Hispanic or Latino,2,384.0
 14254,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Massachusetts Institute of Technology,Doctor's degree - research/scholarship,Asian,1,385.0
 14255,2023,"09.07 - Radio, Television, and Digital Communication.",Male,Massachusetts Institute of Technology,Doctor's degree - research/scholarship,White,7,386.0
@@ -5279,9 +5266,6 @@
 16107,2023,"42.01 - Psychology, General.",Female,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,Hispanic or Latino,1,2243.0
 16108,2023,"42.01 - Psychology, General.",Female,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,White,1,2244.0
 16109,2023,"42.01 - Psychology, General.",Female,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,Two or more races,1,2245.0
-16110,2023,"42.01 - Psychology, General.",Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,6,2246.0
-16111,2023,"42.01 - Psychology, General.",Female,Liberty University,Doctor's degree - research/scholarship,White,16,2247.0
-16112,2023,"42.01 - Psychology, General.",Female,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,2248.0
 16113,2023,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,Hispanic or Latino,1,2249.0
 16114,2023,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,Asian,5,2250.0
 16115,2023,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,White,9,2251.0
@@ -5506,9 +5490,6 @@
 16334,2023,"42.01 - Psychology, General.",Male,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,Hispanic or Latino,1,2477.0
 16335,2023,"42.01 - Psychology, General.",Male,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,American Indian or Alaska Native,1,2478.0
 16336,2023,"42.01 - Psychology, General.",Male,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,Two or more races,1,2479.0
-16337,2023,"42.01 - Psychology, General.",Male,Liberty University,Doctor's degree - research/scholarship,Hispanic or Latino,3,2480.0
-16338,2023,"42.01 - Psychology, General.",Male,Liberty University,Doctor's degree - research/scholarship,White,4,2481.0
-16339,2023,"42.01 - Psychology, General.",Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,2482.0
 16340,2023,"42.01 - Psychology, General.",Male,Loma Linda University,Doctor's degree - research/scholarship,Asian,1,2483.0
 16341,2023,"42.01 - Psychology, General.",Male,Loma Linda University,Doctor's degree - research/scholarship,White,1,2484.0
 16342,2023,"42.01 - Psychology, General.",Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,2,2485.0
@@ -5618,8 +5599,6 @@
 16446,2023,43.01 - Criminal Justice and Corrections.,Female,Georgia State University,Doctor's degree - research/scholarship,Black or African American,1,2594.0
 16447,2023,43.01 - Criminal Justice and Corrections.,Female,Georgia State University,Doctor's degree - research/scholarship,White,1,2595.0
 16448,2023,43.01 - Criminal Justice and Corrections.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,1,2596.0
-16449,2023,43.01 - Criminal Justice and Corrections.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,2597.0
-16450,2023,43.01 - Criminal Justice and Corrections.,Female,Liberty University,Doctor's degree - research/scholarship,White,7,2598.0
 16451,2023,43.01 - Criminal Justice and Corrections.,Female,Michigan State University,Doctor's degree - research/scholarship,American Indian or Alaska Native,1,2599.0
 16452,2023,43.01 - Criminal Justice and Corrections.,Female,Michigan State University,Doctor's degree - research/scholarship,Asian,1,2600.0
 16453,2023,43.01 - Criminal Justice and Corrections.,Female,Michigan State University,Doctor's degree - research/scholarship,White,4,2601.0
@@ -5670,10 +5649,6 @@
 16498,2023,43.01 - Criminal Justice and Corrections.,Male,Florida State University,Doctor's degree - research/scholarship,White,1,2651.0
 16499,2023,43.01 - Criminal Justice and Corrections.,Male,George Mason University,Doctor's degree - research/scholarship,Black or African American,1,2652.0
 16500,2023,43.01 - Criminal Justice and Corrections.,Male,George Mason University,Doctor's degree - research/scholarship,White,2,2653.0
-16501,2023,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,Hispanic or Latino,1,2654.0
-16502,2023,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,3,2655.0
-16503,2023,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,White,10,2656.0
-16504,2023,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,2657.0
 16505,2023,43.01 - Criminal Justice and Corrections.,Male,Michigan State University,Doctor's degree - research/scholarship,White,2,2658.0
 16506,2023,43.01 - Criminal Justice and Corrections.,Male,Northcentral University,Doctor's degree - research/scholarship,White,3,2659.0
 16507,2023,43.01 - Criminal Justice and Corrections.,Male,Northeastern University,Doctor's degree - research/scholarship,White,3,2660.0
@@ -6762,9 +6737,6 @@
 17590,2023,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,Hispanic or Latino,1,3746.0
 17591,2023,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,Asian,1,3747.0
 17592,2023,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,White,1,3748.0
-17593,2023,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,2,3749.0
-17594,2023,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,White,10,3750.0
-17595,2023,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,3751.0
 17596,2023,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Black or African American,1,3752.0
 17597,2023,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,2,3753.0
 17598,2023,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Two or more races,1,3754.0
@@ -6892,11 +6864,6 @@
 17720,2023,50.09 - Music.,Male,James Madison University,Doctor's degree - research/scholarship,White,2,3876.0
 17721,2023,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,White,1,3877.0
 17722,2023,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,Two or more races,1,3878.0
-17723,2023,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Hispanic or Latino,1,3879.0
-17724,2023,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Asian,1,3880.0
-17725,2023,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,10,3881.0
-17726,2023,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,White,16,3882.0
-17727,2023,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,3883.0
 17728,2023,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Black or African American,1,3884.0
 17729,2023,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,8,3885.0
 17730,2023,50.09 - Music.,Male,Michigan State University,Doctor's degree - research/scholarship,Hispanic or Latino,1,3886.0
@@ -7070,8 +7037,6 @@
 17898,2023,54.01 - History.,Female,Inter American University of Puerto Rico-Metro,Doctor's degree - research/scholarship,Hispanic or Latino,1,4054.0
 17899,2023,54.01 - History.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,Black or African American,1,4055.0
 17900,2023,54.01 - History.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,White,3,4056.0
-17901,2023,54.01 - History.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,4057.0
-17902,2023,54.01 - History.,Female,Liberty University,Doctor's degree - research/scholarship,White,6,4058.0
 17903,2023,54.01 - History.,Female,Loyola University Chicago,Doctor's degree - research/scholarship,White,1,4059.0
 17904,2023,54.01 - History.,Female,Michigan State University,Doctor's degree - research/scholarship,White,4,4060.0
 17905,2023,54.01 - History.,Female,Middle Tennessee State University,Doctor's degree - research/scholarship,White,4,4061.0
@@ -7218,9 +7183,6 @@
 18046,2023,54.01 - History.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,White,6,4202.0
 18047,2023,54.01 - History.,Male,Kansas State University,Doctor's degree - research/scholarship,White,1,4203.0
 18048,2023,54.01 - History.,Male,Lehigh University,Doctor's degree - research/scholarship,Black or African American,1,4204.0
-18049,2023,54.01 - History.,Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,2,4205.0
-18050,2023,54.01 - History.,Male,Liberty University,Doctor's degree - research/scholarship,White,20,4206.0
-18051,2023,54.01 - History.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,3,4207.0
 18052,2023,54.01 - History.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,4,4208.0
 18053,2023,54.01 - History.,Male,Loyola University Chicago,Doctor's degree - research/scholarship,White,2,4209.0
 18054,2023,54.01 - History.,Male,Michigan State University,Doctor's degree - research/scholarship,Black or African American,2,4210.0
@@ -7529,8 +7491,6 @@
 18357,2022,09.01 - Communication and Media Studies.,Female,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,Black or African American,1,4513.0
 18358,2022,09.01 - Communication and Media Studies.,Female,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,White,1,4514.0
 18359,2022,09.01 - Communication and Media Studies.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,3,4515.0
-18360,2022,09.01 - Communication and Media Studies.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,4516.0
-18361,2022,09.01 - Communication and Media Studies.,Female,Liberty University,Doctor's degree - research/scholarship,White,5,4517.0
 18362,2022,09.01 - Communication and Media Studies.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Asian,1,4518.0
 18363,2022,09.01 - Communication and Media Studies.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,2,4519.0
 18364,2022,09.01 - Communication and Media Studies.,Female,Michigan State University,Doctor's degree - research/scholarship,White,3,4520.0
@@ -7540,9 +7500,6 @@
 18368,2022,09.01 - Communication and Media Studies.,Female,Pennsylvania State University-Main Campus,Doctor's degree - research/scholarship,Two or more races,1,4524.0
 18369,2022,09.01 - Communication and Media Studies.,Female,Purdue University-Main Campus,Doctor's degree - research/scholarship,Asian,1,4525.0
 18370,2022,09.01 - Communication and Media Studies.,Female,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,6,4526.0
-18371,2022,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,Asian,1,4527.0
-18372,2022,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,Black or African American,1,4528.0
-18373,2022,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,White,4,4529.0
 18374,2022,09.01 - Communication and Media Studies.,Female,Rensselaer Polytechnic Institute,Doctor's degree - research/scholarship,White,1,4530.0
 18375,2022,09.01 - Communication and Media Studies.,Female,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,1,4531.0
 18376,2022,09.01 - Communication and Media Studies.,Female,Syracuse University,Doctor's degree - research/scholarship,Hispanic or Latino,1,4532.0
@@ -7631,8 +7588,6 @@
 18459,2022,09.01 - Communication and Media Studies.,Male,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,White,3,4615.0
 18460,2022,09.01 - Communication and Media Studies.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,Asian,1,4616.0
 18461,2022,09.01 - Communication and Media Studies.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,3,4617.0
-18462,2022,09.01 - Communication and Media Studies.,Male,Liberty University,Doctor's degree - research/scholarship,White,1,4618.0
-18463,2022,09.01 - Communication and Media Studies.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,4619.0
 18464,2022,09.01 - Communication and Media Studies.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,1,4620.0
 18465,2022,09.01 - Communication and Media Studies.,Male,Michigan State University,Doctor's degree - research/scholarship,White,1,4621.0
 18466,2022,09.01 - Communication and Media Studies.,Male,Michigan State University,Doctor's degree - research/scholarship,Two or more races,1,4622.0
@@ -7644,8 +7599,6 @@
 18472,2022,09.01 - Communication and Media Studies.,Male,Pennsylvania State University-Main Campus,Doctor's degree - research/scholarship,Asian,1,4628.0
 18473,2022,09.01 - Communication and Media Studies.,Male,Pennsylvania State University-Main Campus,Doctor's degree - research/scholarship,White,1,4629.0
 18474,2022,09.01 - Communication and Media Studies.,Male,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,2,4630.0
-18475,2022,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,Hispanic or Latino,1,4631.0
-18476,2022,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,White,5,4632.0
 18477,2022,09.01 - Communication and Media Studies.,Male,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,2,4633.0
 18478,2022,09.01 - Communication and Media Studies.,Male,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,Two or more races,1,4634.0
 18479,2022,09.01 - Communication and Media Studies.,Male,Stanford University,Doctor's degree - research/scholarship,Asian,1,4635.0
@@ -9562,7 +9515,6 @@
 20390,2022,"42.01 - Psychology, General.",Female,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,Black or African American,4,6551.0
 20391,2022,"42.01 - Psychology, General.",Female,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,White,5,6552.0
 20392,2022,"42.01 - Psychology, General.",Female,Lehigh University,Doctor's degree - research/scholarship,White,1,6553.0
-20393,2022,"42.01 - Psychology, General.",Female,Liberty University,Doctor's degree - research/scholarship,White,6,6554.0
 20394,2022,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,Black or African American,1,6555.0
 20395,2022,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,White,1,6556.0
 20396,2022,"42.01 - Psychology, General.",Female,Loma Linda University,Doctor's degree - research/scholarship,Two or more races,1,6557.0
@@ -9770,7 +9722,6 @@
 20598,2022,"42.01 - Psychology, General.",Male,Iowa State University,Doctor's degree - research/scholarship,White,3,6768.0
 20599,2022,"42.01 - Psychology, General.",Male,James Madison University,Doctor's degree - research/scholarship,White,1,6769.0
 20600,2022,"42.01 - Psychology, General.",Male,Keiser University-Ft Lauderdale,Doctor's degree - research/scholarship,White,3,6770.0
-20601,2022,"42.01 - Psychology, General.",Male,Liberty University,Doctor's degree - research/scholarship,White,1,6771.0
 20602,2022,"42.01 - Psychology, General.",Male,Loma Linda University,Doctor's degree - research/scholarship,Asian,2,6772.0
 20603,2022,"42.01 - Psychology, General.",Male,Loma Linda University,Doctor's degree - research/scholarship,White,2,6773.0
 20604,2022,"42.01 - Psychology, General.",Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Asian,1,6774.0
@@ -9884,7 +9835,6 @@
 20712,2022,43.01 - Criminal Justice and Corrections.,Female,Georgia State University,Doctor's degree - research/scholarship,White,1,6891.0
 20713,2022,43.01 - Criminal Justice and Corrections.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,1,6892.0
 20714,2022,43.01 - Criminal Justice and Corrections.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,Two or more races,1,6893.0
-20715,2022,43.01 - Criminal Justice and Corrections.,Female,Liberty University,Doctor's degree - research/scholarship,White,5,6894.0
 20716,2022,43.01 - Criminal Justice and Corrections.,Female,Michigan State University,Doctor's degree - research/scholarship,White,2,6895.0
 20717,2022,43.01 - Criminal Justice and Corrections.,Female,North Dakota State University-Main Campus,Doctor's degree - research/scholarship,White,1,6896.0
 20718,2022,43.01 - Criminal Justice and Corrections.,Female,Northcentral University,Doctor's degree - research/scholarship,Hispanic or Latino,1,6897.0
@@ -9913,8 +9863,6 @@
 20741,2022,43.01 - Criminal Justice and Corrections.,Male,Florida International University,Doctor's degree - research/scholarship,Hispanic or Latino,2,6929.0
 20742,2022,43.01 - Criminal Justice and Corrections.,Male,Florida International University,Doctor's degree - research/scholarship,White,1,6930.0
 20743,2022,43.01 - Criminal Justice and Corrections.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,1,6931.0
-20744,2022,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,White,4,6932.0
-20745,2022,43.01 - Criminal Justice and Corrections.,Male,Liberty University,Doctor's degree - research/scholarship,Two or more races,1,6933.0
 20746,2022,43.01 - Criminal Justice and Corrections.,Male,Northcentral University,Doctor's degree - research/scholarship,White,1,6934.0
 20747,2022,43.01 - Criminal Justice and Corrections.,Male,Nova Southeastern University,Doctor's degree - research/scholarship,Hispanic or Latino,1,6935.0
 20748,2022,43.01 - Criminal Justice and Corrections.,Male,Nova Southeastern University,Doctor's degree - research/scholarship,White,3,6936.0
@@ -11075,9 +11023,6 @@
 21903,2022,50.09 - Music.,Female,James Madison University,Doctor's degree - research/scholarship,Asian,1,8094.0
 21904,2022,50.09 - Music.,Female,James Madison University,Doctor's degree - research/scholarship,White,1,8095.0
 21905,2022,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,Asian,3,8096.0
-21906,2022,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,Asian,1,8097.0
-21907,2022,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,8098.0
-21908,2022,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,White,4,8099.0
 21909,2022,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,2,8100.0
 21910,2022,50.09 - Music.,Female,Michigan State University,Doctor's degree - research/scholarship,Hispanic or Latino,1,8101.0
 21911,2022,50.09 - Music.,Female,Michigan State University,Doctor's degree - research/scholarship,Asian,1,8102.0
@@ -11217,8 +11162,6 @@
 22045,2022,50.09 - Music.,Male,Indiana University-Bloomington,Doctor's degree - research/scholarship,Two or more races,1,8236.0
 22046,2022,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,Asian,2,8237.0
 22047,2022,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,White,4,8238.0
-22048,2022,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,8239.0
-22049,2022,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,White,10,8240.0
 22050,2022,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Hispanic or Latino,2,8241.0
 22051,2022,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Black or African American,2,8242.0
 22052,2022,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,5,8243.0
@@ -11564,7 +11507,6 @@
 22392,2022,54.01 - History.,Male,Kent State University at Kent,Doctor's degree - research/scholarship,Hispanic or Latino,1,8583.0
 22393,2022,54.01 - History.,Male,Kent State University at Kent,Doctor's degree - research/scholarship,White,2,8584.0
 22394,2022,54.01 - History.,Male,Lehigh University,Doctor's degree - research/scholarship,White,1,8585.0
-22395,2022,54.01 - History.,Male,Liberty University,Doctor's degree - research/scholarship,White,4,8586.0
 22396,2022,54.01 - History.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Hispanic or Latino,2,8587.0
 22397,2022,54.01 - History.,Male,Marquette University,Doctor's degree - research/scholarship,White,2,8588.0
 22398,2022,54.01 - History.,Male,Michigan State University,Doctor's degree - research/scholarship,White,2,8589.0
@@ -11852,14 +11794,12 @@
 22680,2021,09.01 - Communication and Media Studies.,Female,Howard University,Doctor's degree - research/scholarship,Black or African American,4,8871.0
 22681,2021,09.01 - Communication and Media Studies.,Female,Indiana University of Pennsylvania-Main Campus,Doctor's degree - research/scholarship,White,2,8872.0
 22682,2021,09.01 - Communication and Media Studies.,Female,Indiana University-Bloomington,Doctor's degree - research/scholarship,White,5,8873.0
-22683,2021,09.01 - Communication and Media Studies.,Female,Liberty University,Doctor's degree - research/scholarship,White,2,8874.0
 22684,2021,09.01 - Communication and Media Studies.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,3,8875.0
 22685,2021,09.01 - Communication and Media Studies.,Female,Michigan State University,Doctor's degree - research/scholarship,White,3,8876.0
 22686,2021,09.01 - Communication and Media Studies.,Female,North Dakota State University-Main Campus,Doctor's degree - research/scholarship,White,1,8877.0
 22687,2021,09.01 - Communication and Media Studies.,Female,Ohio State University-Main Campus,Doctor's degree - research/scholarship,White,2,8878.0
 22688,2021,09.01 - Communication and Media Studies.,Female,Ohio University-Main Campus,Doctor's degree - research/scholarship,Black or African American,1,8879.0
 22689,2021,09.01 - Communication and Media Studies.,Female,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,2,8880.0
-22690,2021,09.01 - Communication and Media Studies.,Female,Regent University,Doctor's degree - research/scholarship,White,6,8881.0
 22691,2021,09.01 - Communication and Media Studies.,Female,Rensselaer Polytechnic Institute,Doctor's degree - research/scholarship,White,4,8882.0
 22692,2021,09.01 - Communication and Media Studies.,Female,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,2,8883.0
 22693,2021,09.01 - Communication and Media Studies.,Female,Syracuse University,Doctor's degree - research/scholarship,Black or African American,1,8884.0
@@ -11952,8 +11892,6 @@
 22780,2021,09.01 - Communication and Media Studies.,Male,Ohio University-Main Campus,Doctor's degree - research/scholarship,Asian,1,8971.0
 22781,2021,09.01 - Communication and Media Studies.,Male,Ohio University-Main Campus,Doctor's degree - research/scholarship,White,1,8972.0
 22782,2021,09.01 - Communication and Media Studies.,Male,Purdue University-Main Campus,Doctor's degree - research/scholarship,White,1,8973.0
-22783,2021,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,Black or African American,1,8974.0
-22784,2021,09.01 - Communication and Media Studies.,Male,Regent University,Doctor's degree - research/scholarship,White,6,8975.0
 22785,2021,09.01 - Communication and Media Studies.,Male,Southern Illinois University-Carbondale,Doctor's degree - research/scholarship,White,1,8976.0
 22786,2021,09.01 - Communication and Media Studies.,Male,Texas A & M University-College Station,Doctor's degree - research/scholarship,Asian,1,8977.0
 22787,2021,09.01 - Communication and Media Studies.,Male,Texas Tech University,Doctor's degree - research/scholarship,Hispanic or Latino,1,8978.0
@@ -15118,7 +15056,6 @@
 25946,2021,50.09 - Music.,Female,James Madison University,Doctor's degree - research/scholarship,White,1,12167.0
 25947,2021,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,Asian,1,12168.0
 25948,2021,50.09 - Music.,Female,Johns Hopkins University,Doctor's degree - research/scholarship,White,1,12169.0
-25949,2021,50.09 - Music.,Female,Liberty University,Doctor's degree - research/scholarship,Black or African American,1,12170.0
 25950,2021,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Hispanic or Latino,1,12171.0
 25951,2021,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,Asian,2,12172.0
 25952,2021,50.09 - Music.,Female,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,1,12173.0
@@ -15259,8 +15196,6 @@
 26087,2021,50.09 - Music.,Male,James Madison University,Doctor's degree - research/scholarship,White,2,12308.0
 26088,2021,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,Asian,1,12309.0
 26089,2021,50.09 - Music.,Male,Johns Hopkins University,Doctor's degree - research/scholarship,White,5,12310.0
-26090,2021,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,Black or African American,3,12311.0
-26091,2021,50.09 - Music.,Male,Liberty University,Doctor's degree - research/scholarship,White,2,12312.0
 26092,2021,50.09 - Music.,Male,Louisiana State University and Agricultural & Mechanical College,Doctor's degree - research/scholarship,White,6,12313.0
 26093,2021,50.09 - Music.,Male,Michigan State University,Doctor's degree - research/scholarship,Black or African American,2,12314.0
 26094,2021,50.09 - Music.,Male,Michigan State University,Doctor's degree - research/scholarship,White,19,12315.0

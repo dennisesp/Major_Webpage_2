@@ -10,7 +10,6 @@ website:
     left: "espejo@upenn.edu"
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
   sidebar:
-    logo: "images/A&S.png"
     pinned: true
     align: center
     style: "docked"

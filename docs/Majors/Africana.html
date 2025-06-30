@@ -130,9 +130,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/A&amp;S.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Majors</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -360,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <section id="earned-doctorates-in-afro-diasporic-fields-of-study-by-raceethnicity" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="earned-doctorates-in-afro-diasporic-fields-of-study-by-raceethnicity">Earned Doctorates in Afro-Diasporic Fields of Study by Race/Ethnicity</h2>
-<div id="68b8875e-8438-4821-833d-8340ebb2a4f8" class="cell" data-tags="[]" data-execution_count="3">
+<div id="68b8875e-8438-4821-833d-8340ebb2a4f8" class="cell" data-tags="[]" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>afro_majors <span class="op">=</span> [</span>
@@ -420,26 +420,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 
 <style>
-  #altair-viz-b59a24042c42445b8bd9cbfa651c38dc.vega-embed {
+  #altair-viz-a0b18cf8f9fc4435a5228d1dfe703104.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-b59a24042c42445b8bd9cbfa651c38dc.vega-embed details,
-  #altair-viz-b59a24042c42445b8bd9cbfa651c38dc.vega-embed details summary {
+  #altair-viz-a0b18cf8f9fc4435a5228d1dfe703104.vega-embed details,
+  #altair-viz-a0b18cf8f9fc4435a5228d1dfe703104.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-b59a24042c42445b8bd9cbfa651c38dc"></div>
+<div id="altair-viz-a0b18cf8f9fc4435a5228d1dfe703104"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b59a24042c42445b8bd9cbfa651c38dc") {
-      outputDiv = document.getElementById("altair-viz-b59a24042c42445b8bd9cbfa651c38dc");
+    if (outputDiv.id !== "altair-viz-a0b18cf8f9fc4435a5228d1dfe703104") {
+      outputDiv = document.getElementById("altair-viz-a0b18cf8f9fc4435a5228d1dfe703104");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="earned-doctorates-in-afro-diasporic-fields-of-study-by-sex" class="level2 text-box">
 <h2 class="anchored" data-anchor-id="earned-doctorates-in-afro-diasporic-fields-of-study-by-sex">Earned Doctorates in Afro-Diasporic Fields of Study by Sex</h2>
-<div id="ed1a58c5-b46d-4bd6-9cea-f8c96ad098cd" class="cell" data-execution_count="9">
+<div id="ed1a58c5-b46d-4bd6-9cea-f8c96ad098cd" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -515,33 +515,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>alt.Color(field<span class="op">=</span><span class="st">"Sex"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"nominal"</span>, legend<span class="op">=</span>alt.Legend(title<span class="op">=</span><span class="st">"Gender"</span>)),</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[<span class="st">"Sex"</span>, <span class="st">"Awards/Degrees Conferred"</span>]</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>).properties(</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Gender Breakdown of Earned Doctorates in Afro-Diasporic fields of study (2021–2023)"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Sex Breakdown of Earned Doctorates in Afro-Diasporic fields of study (2021–2023)"</span>,</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    width<span class="op">=</span><span class="dv">400</span>,</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">400</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>pie_chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="3">
 
 <style>
-  #altair-viz-91d84e78594b403797669496981658b3.vega-embed {
+  #altair-viz-76b3ba881ca1407bbbfe60103f224098.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-91d84e78594b403797669496981658b3.vega-embed details,
-  #altair-viz-91d84e78594b403797669496981658b3.vega-embed details summary {
+  #altair-viz-76b3ba881ca1407bbbfe60103f224098.vega-embed details,
+  #altair-viz-76b3ba881ca1407bbbfe60103f224098.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-91d84e78594b403797669496981658b3"></div>
+<div id="altair-viz-76b3ba881ca1407bbbfe60103f224098"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-91d84e78594b403797669496981658b3") {
-      outputDiv = document.getElementById("altair-viz-91d84e78594b403797669496981658b3");
+    if (outputDiv.id !== "altair-viz-76b3ba881ca1407bbbfe60103f224098") {
+      outputDiv = document.getElementById("altair-viz-76b3ba881ca1407bbbfe60103f224098");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -594,7 +594,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="top-institutions-awarding-afro-diasporic-doctorates-per-raceethnicity." class="level2 text-box">
 <h2 class="anchored" data-anchor-id="top-institutions-awarding-afro-diasporic-doctorates-per-raceethnicity.">Top Institutions Awarding Afro-Diasporic Doctorates Per Race/Ethnicity.</h2>
-<div id="f18e67de-06f6-488b-a5c0-55cedf3a24ac" class="cell" data-execution_count="10">
+<div id="f18e67de-06f6-488b-a5c0-55cedf3a24ac" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[</span>
@@ -643,26 +643,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <style>
-  #altair-viz-c9f7cc7d86b847a6945e4c04a787b712.vega-embed {
+  #altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-c9f7cc7d86b847a6945e4c04a787b712.vega-embed details,
-  #altair-viz-c9f7cc7d86b847a6945e4c04a787b712.vega-embed details summary {
+  #altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e.vega-embed details,
+  #altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-c9f7cc7d86b847a6945e4c04a787b712"></div>
+<div id="altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-c9f7cc7d86b847a6945e4c04a787b712") {
-      outputDiv = document.getElementById("altair-viz-c9f7cc7d86b847a6945e4c04a787b712");
+    if (outputDiv.id !== "altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e") {
+      outputDiv = document.getElementById("altair-viz-df6b8b22d4cb42f8a390d282c74a5d3e");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
